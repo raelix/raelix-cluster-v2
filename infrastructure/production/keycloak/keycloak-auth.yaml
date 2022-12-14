@@ -5,8 +5,8 @@ metadata:
     namespace: keycloak
 type: Opaque
 data:
-    admin-password: ENC[AES256_GCM,data:ofeDPbqKXaExS2eO,iv:v5ItbYjON4JVYh1TSZhLwFX2JKZjuBv5RrfU1ActCmQ=,tag:O9imGH+VceGxP7mXuMUw2w==,type:str]
-    management-password: ENC[AES256_GCM,data:fczqsStFQ53Czuo3,iv:QywfIorAyz2YtbLndo0A5lXRuNV7+tB1uVCQxZPT+hY=,tag:M+CXOKH/c934aOFktX+gEw==,type:str]
+    admin-password: ENC[AES256_GCM,data:mUyLwZP3iWg=,iv:JaeX44bjdkNEebp6lzZNQyyi4aIT8PGUfTroQUniqGc=,tag:mozuGYX5n6lwb0GruBcnug==,type:str]
+    management-password: ENC[AES256_GCM,data:utxVdhoFuMo=,iv:ZbaMRvXVAM63MdYNsAh5Hkcaohh9mh1oudxc1uJ40i4=,tag:gCIFyrL3xom7IN9okaimog==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -16,14 +16,14 @@ sops:
         - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3TFRXVldlQUNNaGdGTGF3
-            a3hmd2N0MHZsVEEvL0szbllmSlhpSVlFK2tzCmU1U2dRTFQ4cG1lQjJkOWYwVmRZ
-            RG9nejVEVWc1UUx1bDI0TlBtM1JTaVEKLS0tIDBhNEhSSU01QXIzOXltMkoyUGpQ
-            L1BFbDJnRVJESm53TXdlZmJoZkM1NFUKURmcmuKMjHW8DzJzEiCVq17Q4rKQIHIf
-            zPn4DEifu92+BncRrhyJfqtpaIX5alXtW30P0bfcXoeNY8mknzquNg==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRV0Q4eDh4SVZvMUtMdnpP
+            cE9GSk82K3ZEbHVibGlYSDI1dDdkekhDYkVjCkZ5Z21Ca0tnT0czckg1ZW5qZnRI
+            cGZUekpHanRjODdHSmttVWtqdEJlRHcKLS0tIGhKWVBwemZLS2haTEc5S1puYUl3
+            WjFXWnFCRC91bUFpVi9OQUo1dmJzcncKb/HQZTMXMPNThUlMFx3mAPhUPhDBuSNG
+            e97Qclx1a+UTrPyWQ4O3bfnbZT3Vn6IfZlBFb5HKAV2mUDpFw4vqvQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2022-12-14T22:24:18Z"
-    mac: ENC[AES256_GCM,data:1bsS7xCd8b9d8ymBzYC3PJXLYh/hmcQRXobwztlEH4h+UjSlBJ2XQj6ZlaupiopLmZAoEhXjY2gLk63ej2r/YTllhROy+9XgMecLTNxv85UG7nd1YF/rjDzAmV0rMkASxmxzVilzv9fEOUXkERAm/eqmmw9RVrYOC3gR28Ck4kU=,iv:pVffxsfLhVJsWRzahyNRFalTj2OdTTrqqFGNPzIHEmw=,tag:PKgc7Jl5/yQ+d9hSGXoDlg==,type:str]
+    lastmodified: "2022-12-14T23:02:23Z"
+    mac: ENC[AES256_GCM,data:92al/QS81Sqz4+VgM+sBrGtdXIuIYuTFnuIRy2CMOnCZ/Gy2JmZ6q8U6nOKOAFzrED36fz21n8NlAmO1XZJ2O7Q9fi+ORRNQtmcw2stJoXrz+VuVAvi1uhV8SSVhAua9+7HtT35VqGx8PWmUgezzQzlC08dn3sQFZ4r/ZaCyzjk=,iv:x7/9JNsdVNWPBEpqYzUaQspS1gSDlracCbkXn7HDlDw=,tag:gQYqZAsWaI3F+XUU3TV8Ug==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
