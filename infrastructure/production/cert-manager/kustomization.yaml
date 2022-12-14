@@ -26,4 +26,4 @@ patches:
         valuesFrom:
         - kind: ConfigMap
           name: cert-manager-values
-          ValuesKey: values.yaml
+          valuesKey: values.yaml
