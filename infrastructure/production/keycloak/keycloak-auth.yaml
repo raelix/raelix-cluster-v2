@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: keycloak-auth
+    namespace: keycloak
+type: Opaque
+data:
+    admin-password: ENC[AES256_GCM,data:ofeDPbqKXaExS2eO,iv:v5ItbYjON4JVYh1TSZhLwFX2JKZjuBv5RrfU1ActCmQ=,tag:O9imGH+VceGxP7mXuMUw2w==,type:str]
+    management-password: ENC[AES256_GCM,data:fczqsStFQ53Czuo3,iv:QywfIorAyz2YtbLndo0A5lXRuNV7+tB1uVCQxZPT+hY=,tag:M+CXOKH/c934aOFktX+gEw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3TFRXVldlQUNNaGdGTGF3
+            a3hmd2N0MHZsVEEvL0szbllmSlhpSVlFK2tzCmU1U2dRTFQ4cG1lQjJkOWYwVmRZ
+            RG9nejVEVWc1UUx1bDI0TlBtM1JTaVEKLS0tIDBhNEhSSU01QXIzOXltMkoyUGpQ
+            L1BFbDJnRVJESm53TXdlZmJoZkM1NFUKURmcmuKMjHW8DzJzEiCVq17Q4rKQIHIf
+            zPn4DEifu92+BncRrhyJfqtpaIX5alXtW30P0bfcXoeNY8mknzquNg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2022-12-14T22:24:18Z"
+    mac: ENC[AES256_GCM,data:1bsS7xCd8b9d8ymBzYC3PJXLYh/hmcQRXobwztlEH4h+UjSlBJ2XQj6ZlaupiopLmZAoEhXjY2gLk63ej2r/YTllhROy+9XgMecLTNxv85UG7nd1YF/rjDzAmV0rMkASxmxzVilzv9fEOUXkERAm/eqmmw9RVrYOC3gR28Ck4kU=,iv:pVffxsfLhVJsWRzahyNRFalTj2OdTTrqqFGNPzIHEmw=,tag:PKgc7Jl5/yQ+d9hSGXoDlg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

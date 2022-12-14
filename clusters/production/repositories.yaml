@@ -13,3 +13,7 @@ spec:
   path: ./repositories
   prune: true
   wait: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
