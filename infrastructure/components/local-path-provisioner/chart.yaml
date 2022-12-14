@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: local-path-provisioner
+  namespace: local-path-provisioner
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: ./deploy/chart/local-path-provisioner
+      sourceRef:
+        kind: GitRepository
+        name: local-path-provisioner
+        namespace: flux-system
+      interval: 12h
+  values:
+    storageClass:
+      create: true
+      defaultClass: true
+  # valuesFrom:
+  # - kind: ConfigMap
+  #   name: cert-values
