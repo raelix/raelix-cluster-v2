@@ -57,37 +57,36 @@ ingress:
 auth:
   adminUser: user
 
-  existingSecret:
-    name: keycloak-auth
+  existingSecret: keycloak-auth
     # keyMapping:
     #   admin-password: myPasswordKey
     #   management-password: myManagementPasswordKey
 
-extraVolumeMounts:
-  - name: providers
-    mountPath: /opt/bitnami/keycloak/providers
+# extraVolumeMounts:
+#   - name: providers
+#     mountPath: /opt/bitnami/keycloak/providers
 
-extraVolumes:
-  - name: providers
-    emptyDir: {}
+# extraVolumes:
+#   - name: providers
+#     emptyDir: {}
 
-initContainers:
-  - name: metrics-spi-provider
-    image: busybox:latest
-    imagePullPolicy: Always
-    command:
-      - sh
-    args:
-      - -c
-      - |
-        KEYCLOAK_METRICS_SPI_VERSION=2.5.3
-        wget --no-check-certificate -O /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar \
-          https://github.com/aerogear/keycloak-metrics-spi/releases/download/${KEYCLOAK_METRICS_SPI_VERSION}/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar
-        chmod +x /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar
-        touch /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar.dodeploy
-    volumeMounts:
-      - name: providers
-        mountPath: /providers
+# initContainers:
+#   - name: metrics-spi-provider
+#     image: busybox:latest
+#     imagePullPolicy: Always
+#     command:
+#       - sh
+#     args:
+#       - -c
+#       - |
+#         KEYCLOAK_METRICS_SPI_VERSION=2.5.3
+#         wget --no-check-certificate -O /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar \
+#           https://github.com/aerogear/keycloak-metrics-spi/releases/download/${KEYCLOAK_METRICS_SPI_VERSION}/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar
+#         chmod +x /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar
+#         touch /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar.dodeploy
+#     volumeMounts:
+#       - name: providers
+#         mountPath: /providers
 
 keycloakConfigCli:
   enabled: true
