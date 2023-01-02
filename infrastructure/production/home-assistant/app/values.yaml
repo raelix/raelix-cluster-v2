@@ -1,0 +1,59 @@
+image:
+  repository: ghcr.io/home-assistant/home-assistant
+  tag: 2022.12.8
+
+# podAnnotations:
+#   secret.reloader.stakater.com/reload: home-assistant-secrets
+
+# envFrom:
+#   - secretRef:
+#       name: home-assistant-secrets
+
+service:
+  main:
+    ports:
+      http:
+        port: 8123
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      external-dns.home.arpa/enabled: "true"
+    hosts:
+      - host: &host "ha.dev.raelix.com"
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - *host
+
+# persistence:
+#   config:
+#     enabled: true
+#     existingClaim: home-assistant-data
+
+#   deploy-key:
+#     enabled: true
+#     type: secret
+#     name: home-assistant-deploykey
+#     defaultMode: 256
+#     subPath:
+#       - path: id_rsa
+#         mountPath: /root/.ssh/id_rsa
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+resources:
+  requests:
+    cpu: 126m
+    memory: 411M
+  limits:
+    memory: 4417M

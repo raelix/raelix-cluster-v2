@@ -4,3 +4,4 @@ resources:
   - ./jetstack.yaml
   - ./bitnami.yaml
   - ./local-path-provisioner.yaml
+  - ./bjw-s.yaml
