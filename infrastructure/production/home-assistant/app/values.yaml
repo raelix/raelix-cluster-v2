@@ -36,7 +36,7 @@ persistence:
 
   configuration:
     enabled: true
-    type: configmap
+    type: configMap
     name: home-assistant-configuration
     key: configuration.yaml
     defaultMode: 256
