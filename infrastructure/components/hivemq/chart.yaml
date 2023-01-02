@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: hivemq
+      chart: hivemq-operator
       version: 4.10.0
       interval: 30m
       sourceRef:
