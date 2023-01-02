@@ -41,7 +41,7 @@ persistence:
     key: configuration.yaml
     defaultMode: 256
     subPath:
-      - path: config
+      - path: configuration.yaml
         mountPath: /config/configuration.yaml
 
 probes:
