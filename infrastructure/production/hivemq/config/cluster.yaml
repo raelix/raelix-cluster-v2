@@ -8,6 +8,10 @@ spec:
   cpu: '150m'
   memory: '1024M'
   logLevel: INFO
+  podSecurityContext:
+    # fsGroup: 10000
+    runAsNonRoot: false
+    runAsUser: 0
   env:
   - name: HIVEMQ_ALLOW_ALL_CLIENTS
     value: "false"
