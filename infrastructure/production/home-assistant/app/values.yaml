@@ -30,19 +30,19 @@ ingress:
           - *host
 
 persistence:
-#   config:
-#     enabled: true
-#     existingClaim: home-assistant-data
-
-  configuration:
+  config:
     enabled: true
-    type: configMap
-    name: home-assistant-configuration
-    key: configuration.yaml
-    defaultMode: 256
-    subPath:
-      - path: configuration.yaml
-        mountPath: /config/configuration.yaml
+    existingClaim: home-assistant-data
+
+  # configuration:
+  #   enabled: true
+  #   type: configMap
+  #   name: home-assistant-configuration
+  #   key: configuration.yaml
+  #   defaultMode: 256
+  #   subPath:
+  #     - path: configuration.yaml
+  #       mountPath: /config/configuration.yaml
 
 probes:
   liveness:
