@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: app-template
+      chart: hivemq
       version: 0.11.10
       interval: 30m
       sourceRef:
