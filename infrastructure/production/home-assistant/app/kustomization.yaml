@@ -8,6 +8,9 @@ configMapGenerator:
   - name: home-assistant-values
     files:
       - values.yaml=values.yaml
+  - name: home-assistant-configuration
+    files:
+      - configuration.yaml=configuration.yaml
 
 configurations:
   - kustomizeconfig.yaml
