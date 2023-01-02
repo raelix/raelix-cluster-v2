@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: home-automation
+resources:
+  - ../../../components/home-assistant
+
+configMapGenerator:
+  - name: home-assistant-values
+    files:
+      - values.yaml=values.yaml
+
+configurations:
+  - kustomizeconfig.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: home-assistant
+    patch: |-
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: home-assistant
+        namespace: home-automation
+      spec:
+        valuesFrom:
+        - kind: ConfigMap
+          name: home-assistant-values
+          valuesKey: values.yaml
