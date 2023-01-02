@@ -8,10 +8,9 @@ spec:
   cpu: '150m'
   memory: '1024M'
   logLevel: INFO
-  configOverride: |
+  configOverride: |-
     <?xml version="1.0"?>
-    <hivemq xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="config.xsd">
+    <hivemq>
         <listeners>
             --LISTENER-CONFIGURATION--
         </listeners>
