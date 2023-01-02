@@ -6,4 +6,5 @@ resources:
   # - ./keycloak/ks.yaml
   - ./weave-gitops-dashboard/ks.yaml
   - ./home-assistant/ks.yaml
+  - ./hivemq/ks.yaml
 

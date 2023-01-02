@@ -5,3 +5,4 @@ resources:
   - ./bitnami.yaml
   - ./local-path-provisioner.yaml
   - ./bjw-s.yaml
+  - ./hivemq.yaml

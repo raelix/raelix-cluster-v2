@@ -1,0 +1,10 @@
+apiVersion: hivemq.com/v1
+kind: HiveMQCluster
+metadata:
+  name: hivemq-cluster
+  namespace: hivemq
+spec:
+  nodeCount: 1
+  cpu: '150m'
+  memory: '1024M'
+  logLevel: INFO
