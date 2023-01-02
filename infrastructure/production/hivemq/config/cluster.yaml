@@ -10,7 +10,8 @@ spec:
   logLevel: INFO
   containerSecurityContext:
     runAsNonRoot: false
-    # allowPrivilegeEscalation: false
+    runAsUser: 0
+    allowPrivilegeEscalation: true
     privileged: true
   env:
   - name: HIVEMQ_ALLOW_ALL_CLIENTS
