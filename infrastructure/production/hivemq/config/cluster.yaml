@@ -13,9 +13,9 @@ spec:
     runAsUser: 0
     allowPrivilegeEscalation: true
     privileged: true
-  # env:
-  # - name: HIVEMQ_ALLOW_ALL_CLIENTS
-  #   value: "false"
+  env:
+  - name: HIVEMQ_ALLOW_ALL_CLIENTS
+    value: "false"
   configOverride: |-
     <?xml version="1.0"?>
     <hivemq>
