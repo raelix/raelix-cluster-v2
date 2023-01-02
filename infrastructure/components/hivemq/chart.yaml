@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: hivemq
-      version: 0.11.10
+      version: 4.10.0
       interval: 30m
       sourceRef:
         kind: HelmRepository
