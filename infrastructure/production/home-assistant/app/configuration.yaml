@@ -1,5 +1,17 @@
-# Loads default set of integrations. Do not remove.
-default_config:
+# cloud:
+config:
+frontend:
+# history:
+# logbook:
+map:
+mobile_app:
+person:
+script:
+ssdp:
+sun:
+system_health:
+updater:
+zerocon:
 
 # Load frontend themes from the themes folder
 frontend:
@@ -14,10 +26,6 @@ http:
   trusted_proxies:
     - 10.42.0.0/24
 
-git:
-  - repository: https://github.com/raelix/home-assistant.git
-    track:
-      - all
 
 automation: 
 script: 
