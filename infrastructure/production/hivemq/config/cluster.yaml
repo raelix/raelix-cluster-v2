@@ -8,6 +8,9 @@ spec:
   cpu: '150m'
   memory: '1024M'
   logLevel: INFO
+  env:
+  - name: HIVEMQ_ALLOW_ALL_CLIENTS
+    value: "false"
   configOverride: |-
     <?xml version="1.0"?>
       <hivemq>
