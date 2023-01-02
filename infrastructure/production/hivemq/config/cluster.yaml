@@ -12,7 +12,6 @@ spec:
     <?xml version="1.0"?>
     <hivemq>
         <listeners>
-            --LISTENER-CONFIGURATION--
         </listeners>
         <control-center>
             <default-user-enabled>false</default-user-enabled>
