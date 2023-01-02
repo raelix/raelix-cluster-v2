@@ -11,6 +11,8 @@ configMapGenerator:
   - name: home-assistant-configuration
     files:
       - configuration.yaml=configuration.yaml
+    options:
+      disableNameSuffixHash: true
 
 configurations:
   - kustomizeconfig.yaml
