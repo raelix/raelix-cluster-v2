@@ -1,0 +1,6 @@
+skipCRDs: false
+
+replicaCount: 1
+
+cert-manager:
+  enable: true

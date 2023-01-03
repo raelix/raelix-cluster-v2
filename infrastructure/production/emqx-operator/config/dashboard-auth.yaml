@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: dashboard-auth
+    namespace: default
+type: Opaque
+data:
+    EMQX_DASHBOARD__DEFAULT_PASSWORD: ENC[AES256_GCM,data:+b1hCJQC8Nw=,iv:Qudg28Eg9jGFN0DtBoQfJHQGqtuajoGxYMQEdR4MOUI=,tag:0GimX7c9J9/jAqTF7RWEwg==,type:str]
+    EMQX_DASHBOARD__DEFAULT_USERNAME: ENC[AES256_GCM,data:iYNzbzAd5Ds2V6LoJ2oB/w==,iv:4wjWIm6PkDYv6tObmiB2AtrVwS3mIaCgEkCt0By+ahM=,tag:uzuQnFB440gj4UePsrToIA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBhNWxjekJDczdPZG9FOW10
+            d05kdnRycnZkMVV4VFdFVDhsaW9TVld5WXpFCnJFVzY4bmxkN2JQZGZLcjJ1N3ZF
+            WWlDWlZjRDhCSkdDZkoyejRjUFlXaEkKLS0tIE4wSWtLWnQ0OWVzYXlkQTFGN2dH
+            dkQ1TCtWd1VkUzE4ZVlUZXM3cTBqTkkKAL7GeoaFDlHYeX2C28fSOndB+oZ9Nxii
+            6VBiUvnhZeJU/0o5f/AzKW2mSmLQQErHY1rS+z6NwH8ehMPu9a4IVA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-01-03T22:25:58Z"
+    mac: ENC[AES256_GCM,data:haVH/5NF+PcwLaM/MUD1svWYwpfYJ5lMIwa+avA8ymQSMU00rwfkH0zE5xH69br64+XZ2sjcmpvd2EnhAzCI/GZYgTURC/hfPOnvRn2VSxtx6xJr/N5vKiUUo4HTzIoBtmgC8IXqBSmzqIh6jnGQnwnjBh1sgdgVGLNf/49E5PQ=,iv:d5UajmBWlMQsBymAHvlqWlWV1Y9mBGBLnvbilwHVtyY=,tag:3zsnANSk9I8xH2jTEhLTfA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

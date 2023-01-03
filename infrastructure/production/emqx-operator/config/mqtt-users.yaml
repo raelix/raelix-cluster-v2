@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: mqtt-users
+    namespace: default
+data:
+    users.json: ENC[AES256_GCM,data:3UCXEODMenVYNDMOZ9DeH10Q/g9HVGOkHgNgJhdcvmlA79rTFtVnwfTAO45OR1mPT6HNZmehDOfIVhY1DRdGbwSJ7Pvjz/g80IItx63xPbcLO2R0wUVfw7P20CUFuclgPIpDqWCwCnbWaeDk,iv:Ah4JmrOEOjwWGtBh1q9+D2pzpfUcQBEnB4hI6q8H/P8=,tag:JE0vWt38wdalP2aNeB3upA==,type:str]
+    #ENC[AES256_GCM,data:SzvOnnFeR3snX2GfZ+Qo0NfoB0hQXoHmzIqaNDJYMocCK77JzCZNJD3QJ3+psDRHnq7/hjoq7NoXTVPKWpa1WNMABy58Hv6HY3JlQrQY53BVXk7p6+WXYIwYAw==,iv:XcQnlZps8SD9ocHmhr20wbu4xT98Lmf5QgSU9gDZLbc=,tag:uN0y5XY2QKORnmOaCff6Yw==,type:comment]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2dy9ZUWJOeFgyaUh5VHoy
+            a0JhazFpak51SGxsUDlhbE10STY1by8yMFI0CmV6SFRaZVFpVXJodm9nT29uZ1Nj
+            U0lEa1NwNnNmb2psRVY1MU9mMUVzVVkKLS0tIHFYTUJlaXRWVnNySkRIdjY4R3FQ
+            S0c3ejdwQ09ITEhnQUZCdVlwaXNjcEkKDLNh89TyviNMmDRM+KLwb5W9w+sMdcsc
+            Ug7ocV3UIcXA2h7aJ00lZjV+W8uWhhzXMrzi02iVwZqyAeZqKrF+lg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-01-03T22:26:10Z"
+    mac: ENC[AES256_GCM,data:ujdOkM1w4peqhJFgO3IbzjZgz+o1K3w3dG01p1ZZdlDwl2Gj1cV8vn0gC6NbE9eMcnOv4c6BYpFXCp+UO1P/73KYFZpK13eufpXquHw1/EC09SQQjGwUPpnpTD25opXDGhpQqpZhjme5Elv/XrXkb39E/zodebf9/SNr2oPRW/I=,iv:yX0rPGBE/njOohKyrtb0EL/IwUBXJAtWX1RdqXOJT4I=,tag:NsrN5Xv9hNccMfIUMU0tJQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
