@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: mqtt-users
-    namespace: default
+    namespace: message
 data:
     users.json: ENC[AES256_GCM,data:3UCXEODMenVYNDMOZ9DeH10Q/g9HVGOkHgNgJhdcvmlA79rTFtVnwfTAO45OR1mPT6HNZmehDOfIVhY1DRdGbwSJ7Pvjz/g80IItx63xPbcLO2R0wUVfw7P20CUFuclgPIpDqWCwCnbWaeDk,iv:Ah4JmrOEOjwWGtBh1q9+D2pzpfUcQBEnB4hI6q8H/P8=,tag:JE0vWt38wdalP2aNeB3upA==,type:str]
     #ENC[AES256_GCM,data:SzvOnnFeR3snX2GfZ+Qo0NfoB0hQXoHmzIqaNDJYMocCK77JzCZNJD3QJ3+psDRHnq7/hjoq7NoXTVPKWpa1WNMABy58Hv6HY3JlQrQY53BVXk7p6+WXYIwYAw==,iv:XcQnlZps8SD9ocHmhr20wbu4xT98Lmf5QgSU9gDZLbc=,tag:uN0y5XY2QKORnmOaCff6Yw==,type:comment]
