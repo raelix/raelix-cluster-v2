@@ -4,8 +4,8 @@ metadata:
     name: dashboard-auth
 type: Opaque
 data:
-    EMQX_DASHBOARD__DEFAULT_USERNAME: ENC[AES256_GCM,data:lYrI2wyf5jA=,iv:ZNRDrYufFYT64HNzXqVJ2kvJ4ed82+hR1EdMsllOHx4=,tag:XnbKkCqSxF6vHOq5uE3g+Q==,type:str]
-    EMQX_DASHBOARD__DEFAULT_PASSWORD: ENC[AES256_GCM,data:iW5Zcz2KfLKlXgVqppXnRA==,iv:k8y6WW/VayN11GYnNvzDpyu6w1czEwWz5WEJ9vW7EJI=,tag:kvFURGXzVlVXu4+i4NMOLA==,type:str]
+    EMQX_DASHBOARD__DEFAULT_USERNAME: ENC[AES256_GCM,data:fJo1iu013Oo=,iv:keTNbcXK5/6HjTmXWuij4g4BNtXcwoffPmS0xR0C4NA=,tag:BGP5jmtnV6V1asvboIyvDw==,type:str]
+    EMQX_DASHBOARD__DEFAULT_PASSWORD: ENC[AES256_GCM,data:F8mJJ78J0zk0CFZcVKtZqg==,iv:4+wA+RhHECWKJsxBTkesEQr/Poe1SUJbuUhkLfo1Sjw=,tag:Az/tZdq+xsY1mxEDr7ychw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -15,14 +15,14 @@ sops:
         - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVRjFPcklCeDZYdTZ1ZllE
-            U0NicUVNL2ducUFycWRseTFyUlZFeXIyOENnCkxsRE54OHFjV1lCalNNZWNXSE1P
-            eVZ4NmFIYWw3K1JNKzdEdTA2RTBheTgKLS0tIHNnU0c4bTFWdmJ1L1hGc1NrWDls
-            TDczODlsdXFMOVBaT1lYelFzWi90TUEK0VLxu3RByXz9CuIKGrwouh/YN29nnQnd
-            +LMHn23h0UxGrKZBhfxFsYjWBUHoKkhkM4D/83Qbh0jEOsyhjP3IVQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBkTnlLOTE2WTJSaTN0Rlpu
+            YURWY2h0ckJjNHdrMU95Nm9XUThpWmcwUUNJCnBSNCtEeTFqUnY2OStKN05WTS91
+            cVJNY2N1ZG8waWluYVdaNk53amdrV2MKLS0tIGgzTmhQOGVYYWdkRWVQVG1YUWtE
+            RktUYzYxSk9NOUtObStsdjlOOVo2d1UKc9IadDo3gY2IPhlpixtYt7vX7xCW0T+9
+            oxYVa1xZ7drUeXFU4dgyhUzLQowsCnH+0isWTlRuxMjWa/FnyJ4Stw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-01-03T22:56:00Z"
-    mac: ENC[AES256_GCM,data:SwPQwLjU1JylpDVyqwn9PoB7pc505zcyBcPT0sqf9VhBwxsXrjkhiS8QNPRqbsF+Wi6v+8lVX9Q+M0QnqlyNOiYyWv9c6CCfE+Y85hlp5v2yYUoIJNBjk5eNKIqU/GUjln1Li6XhD34IDqR15BZaF3Zsvbt6nPI8lGo77cIJdfo=,iv:uItRyZIAfDV9iaBWU8tM+ZwvOv2LqEFJ8NmpgEIfwYA=,tag:ZssnuACGJie0N2wywe01JA==,type:str]
+    lastmodified: "2023-01-03T22:58:45Z"
+    mac: ENC[AES256_GCM,data:00JTlqWmiS1aSZrZRS61ZF38h3F0jlFZE1xu0jYb/6VdDHfD+udEqkfSdgEnXsIngjbNBJ6vfKxcYNqRIouoJHFkdsEYFrrEFXMRTsG/FntcAD0QcJtTSfwHEMwAeBFPgLWNGyZ2zhJFToMkbf0C6fxcdDRW9lxOXzhq8iUPY18=,iv:GNywZr2BDyHjijTenpK20u1XFjIryGunC4Kvie/wsV0=,tag:9jf4Dn4VVdKXp1W6IKTKLQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
