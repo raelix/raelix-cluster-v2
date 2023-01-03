@@ -5,8 +5,8 @@ metadata:
     # namespace: message
 type: Opaque
 data:
-    EMQX_DASHBOARD__DEFAULT_PASSWORD: ENC[AES256_GCM,data:+b1hCJQC8Nw=,iv:Qudg28Eg9jGFN0DtBoQfJHQGqtuajoGxYMQEdR4MOUI=,tag:0GimX7c9J9/jAqTF7RWEwg==,type:str]
-    EMQX_DASHBOARD__DEFAULT_USERNAME: ENC[AES256_GCM,data:iYNzbzAd5Ds2V6LoJ2oB/w==,iv:4wjWIm6PkDYv6tObmiB2AtrVwS3mIaCgEkCt0By+ahM=,tag:uzuQnFB440gj4UePsrToIA==,type:str]
+    EMQX_DASHBOARD__DEFAULT_USERNAME: ENC[AES256_GCM,data:+b1hCJQC8Nw=,iv:Qudg28Eg9jGFN0DtBoQfJHQGqtuajoGxYMQEdR4MOUI=,tag:0GimX7c9J9/jAqTF7RWEwg==,type:str]
+    EMQX_DASHBOARD__DEFAULT_PASSWORD: ENC[AES256_GCM,data:iYNzbzAd5Ds2V6LoJ2oB/w==,iv:4wjWIm6PkDYv6tObmiB2AtrVwS3mIaCgEkCt0By+ahM=,tag:uzuQnFB440gj4UePsrToIA==,type:str]
 sops:
     kms: []
     gcp_kms: []
