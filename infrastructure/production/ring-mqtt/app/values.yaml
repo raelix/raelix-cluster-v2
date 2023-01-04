@@ -34,7 +34,7 @@ persistence:
     type: custom
     volumeSpec:
       secret:
-        name: ring-mqtt-options
+        secretName: ring-mqtt-options
     subPath:
       - path: options.json
         mountPath: /data/options.json
