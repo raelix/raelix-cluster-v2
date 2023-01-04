@@ -43,6 +43,11 @@ spec:
       className: "nginx"
       annotations:
         external-dns.home.arpa/enabled: "true"
-      hosts: "gitops.raelix.com"
+      hosts:
+      - host: "gitops.raelix.com"
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
       tls:
-      - "*.raelix.com"
+       - hosts:
+           - '*.raelix.com'
