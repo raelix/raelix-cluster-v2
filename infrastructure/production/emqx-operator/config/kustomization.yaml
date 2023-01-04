@@ -6,3 +6,4 @@ resources:
   - ./mqtt-users.yaml
   - ./dashboard-auth.yaml
   - ./cluster.yaml
+  - ./ingress.yaml
