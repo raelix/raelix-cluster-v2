@@ -38,4 +38,11 @@ spec:
       create: true
       passwordHash: $2a$10$sN724RX8KBPp.x5NtE0Loe2HG/IR1O5VIYuQ4UfyOo8F6rT3TUPwi
       username: admin
-
+    ingress:
+      enabled: true
+      className: "nginx"
+      annotations:
+        external-dns.home.arpa/enabled: "true"
+      hosts: &host "gitops.raelix.com"
+      tls:
+      - *host
