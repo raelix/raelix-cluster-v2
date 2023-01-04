@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: home-automation
+resources:
+  - ./pvc.yaml
+  - ./ring-mqtt-options.yaml
+  - ../../../components/ring-mqtt
+
+configMapGenerator:
+  - name: ring-mqtt-values
+    files:
+      - values.yaml=values.yaml
+
+configurations:
+  - kustomizeconfig.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: ring-mqtt
+    patch: |-
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: ring-mqtt
+        namespace: home-automation
+      spec:
+        valuesFrom:
+        - kind: ConfigMap
+          name: ring-mqtt-values
+          valuesKey: values.yaml

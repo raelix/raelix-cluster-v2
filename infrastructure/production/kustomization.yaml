@@ -7,4 +7,5 @@ resources:
   - ./weave-gitops-dashboard/ks.yaml
   - ./home-assistant/ks.yaml
   - ./emqx-operator/ks.yaml
+  - ./ring-mqtt/ks.yaml
 

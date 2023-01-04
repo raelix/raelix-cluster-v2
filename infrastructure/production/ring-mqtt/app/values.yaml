@@ -1,0 +1,55 @@
+image:
+  repository: tsightler/ring-mqtt
+  tag: 5.0.5
+
+# podAnnotations:
+#   secret.reloader.stakater.com/reload: home-assistant-secrets
+
+service:
+  main:
+    ports:
+      http:
+        port: 55123
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      external-dns.home.arpa/enabled: "true"
+    hosts:
+      - host: &host "ring-mqtt.raelix.com"
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - *host
+
+persistence:
+  data:
+    enabled: true
+    existingClaim: ring-mqtt-data
+  options:
+    enabled: true
+    type: custom
+    volumeSpec:
+      secret:
+        name: ring-mqtt-options
+    subPath:
+      - path: options.json
+        mountPath: /data/options.json
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+resources:
+  requests:
+    cpu: 126m
+    memory: 411M
+  limits:
+    memory: 4417M
