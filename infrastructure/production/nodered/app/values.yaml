@@ -1,0 +1,46 @@
+image:
+  repository: nodered/node-red
+  tag: latest
+
+# podAnnotations:
+#   secret.reloader.stakater.com/reload: home-assistant-secrets
+
+service:
+  main:
+    ports:
+      http:
+        port: 1880
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      external-dns.home.arpa/enabled: "true"
+    hosts:
+      - host: &host "nodered.raelix.com"
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - *host
+
+persistence:
+  data:
+    enabled: true
+    existingClaim: nodered-data
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+resources:
+  requests:
+    cpu: 126m
+    memory: 411M
+  limits:
+    memory: 4417M

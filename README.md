@@ -65,6 +65,28 @@ The cert-manager is used to create a wildcard certificate for all the sub-domain
 ```
 Where ```cert-manager``` is the namespace and ```wildcard-cert``` is the secret name.
 
+#### Ring-mqtt
+
+Ring-mqtt is deployed with the common chart (thanks for this great library). This specific image requires the ```config.json``` file to placed ```/data/config.json``` which should contains the following configuration:
+```json
+{
+  "mqtt_url": "mqtt://username:password@emqx-listeners.message.svc.cluster.local:1883",
+  "mqtt_options": "",
+  "livestream_user": "",
+  "livestream_pass": "",
+  "disarm_code": "1234",
+  "enable_cameras": true,
+  "enable_modes": false,
+  "enable_panic": true,
+  "branch": "addon",
+  "debug": "ring-*",
+  "location_ids": [
+    ""
+  ]
+}
+```
+This json is then created with the ```ring-mqtt-options.yaml``` secret mounted in the right folder.
+
 #### EMQX
 EMQX is deployed through the operator hence a new CR must be created in order to spawn the cluster. Unfortunately the dashboard user and the mqtt user can't be created easly hence a sidecar is used to do that using the REST API
 
