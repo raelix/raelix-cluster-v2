@@ -37,7 +37,7 @@ persistence:
         secretName: ring-mqtt-options
     subPath:
       - path: options.json
-        mountPath: /data/options.json
+        mountPath: /data/config.json
 
 probes:
   liveness:
