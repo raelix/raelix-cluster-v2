@@ -1,0 +1,26 @@
+kind: Secret
+apiVersion: v1
+metadata:
+    name: ring-mqtt-options
+data:
+    options.json: ENC[AES256_GCM,data:aVNWyOoINUgke+VvqhItm1XjHF1wUcQgBA1wuTsOVjVNgz0p/06y3jthfus3GTFC4vVbX+48y6t8jzWIyjNPqwUz4jqoBB6Q5EmGmR/lBa7VYTodFx55CeeqkPrz7JI7KsM0Bm560T9uAPQY+hLq3k6IOvXRCyAGM5s4JCZ2Vzl+vl+bBZQFC8DKnRRw7G6xZoSRYe+ylB3eaUuTm3SOMAtR2EE7iRwU+lDak+zwNuwFdrQrm0LompclgV4YwPd/dEVGTp0E8oTztSOpe0rnQGbSs6MOg7rbkO2AbUKqex2d0Xs8uiiD5dMisrVgwQOv6xOJLHEA1LVve796HQuZ5MAku2zuffs73VTkpeKowLr5WlncRz8RCrDQu7CfnFgDEmQ9NaVlWMY1yduiCZI5SXotdYxTBU4htCUNQ4MVfA0zRvzpt3+bh/i/My0c5bFuQgthnrKqko+48bfo9T+YhxpdJbGBls4qqCFw9kIQFYojsrUteIAeeo6wxGjtP0n6AQ7/43tv/oCZvF/vS+ZWZJ4Zz8t5E8y+FujRoy5BZf8Nh7ZL2NrLeQxL4lAdIV96F87IKN7pGZT4sFtZMxxtfffXbqs=,iv:+dmgU6I33EeCeBQQ4wAeTXoZSsBdWTZCecVQ2RJtlLI=,tag:2WnDtK6iI63NO6KGqnTEBg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqVkgwM2M4M1RjcHlvc2Rx
+            MjdBUzNqc1FvQ2VSazBpckJNbklPb0lXVERjCkp5MGREL3NkdzhBb2kyMzk0bHVy
+            UUZZS2p1VmYrRmNLaW9yVGcwT3ZJbzgKLS0tIEgwNXA0bTdOek82dlNBd0ZnUG5j
+            Z1lyRVhGaE5iN2Vxa3ZwRzFGREZ3b2MKUCVAFtqmHEvgeKoiIS5xz6q8tUkHRhB5
+            92iqJMcwKUXhM1IKuKBBCojQjDpl/+vbBFwLQUvJ2E615TKrrfMgNg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-01-04T18:04:46Z"
+    mac: ENC[AES256_GCM,data:3uo1SvETz+jw1xp8N+K1s5Kb9FFrsvPTUyEDItyO0Hyd8qBqaIMhMTSv6LhHs2cY712S4CUAHa0bCkIAfqMn43Ef9bd951Kkx20+zmodZSOw1o1qPxs/7UMNiLrYMdWtm6bd9gdzfaq3DXpEprgyQWEB/UoBrNcbDOmicSYvDQ4=,iv:/aZYL7u2rq9sYVRVYChlvxVzpIWTycugFOuBlUpvMIA=,tag:hEx2jtrPe9s1pVKJ+frewQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
