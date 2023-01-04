@@ -58,6 +58,13 @@ To encrypt a secret just run the ```encrypt_me.sh``` passing as first argument t
 ### Apps details
 This section contains the main part related to the application deployment
 
+#### Cert-manager
+The cert-manager is used to create a wildcard certificate for all the sub-domains with ```*.raelix.com``` in order to use it on all the ingresses without copying it on every namespace add the following argument to the ```nginx-ingress-controller```:
+```
+- --default-ssl-certificate=cert-manager/wildcard-cert
+```
+Where ```cert-manager``` is the namespace and ```wildcard-cert``` is the secret name.
+
 #### EMQX
 EMQX is deployed through the operator hence a new CR must be created in order to spawn the cluster. Unfortunately the dashboard user and the mqtt user can't be created easly hence a sidecar is used to do that using the REST API
 

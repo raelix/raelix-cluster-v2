@@ -22,7 +22,7 @@ ingress:
     annotations:
       external-dns.home.arpa/enabled: "true"
     hosts:
-      - host: &host "ha.dev.raelix.com"
+      - host: &host "ha.raelix.com"
         paths:
           - path: /
     tls:
