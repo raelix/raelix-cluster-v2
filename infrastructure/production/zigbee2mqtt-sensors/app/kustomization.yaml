@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: home-automation
+resources:
+  - ./pvc.yaml
+  - ../../../components/zigbee2mqtt
+
+configMapGenerator:
+  - name: zigbee2mqtt-sensors-values
+    files:
+      - values.yaml=values.yaml
+
+configurations:
+  - kustomizeconfig.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: zigbee2mqtt-sensors
+    patch: |-
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: zigbee2mqtt
+        namespace: home-automation
+      spec:
+        valuesFrom:
+        - kind: ConfigMap
+          name: zigbee2mqtt-sensors-values
+          valuesKey: values.yaml
