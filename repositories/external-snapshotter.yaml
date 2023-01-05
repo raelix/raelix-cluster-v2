@@ -1,10 +1,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: local-path-provisioner
+  name: external-snapshotter
   namespace: flux-system
 spec:
   interval: 24h
-  url: https://github.com/rancher/local-path-provisioner
+  url: https://github.com/kubernetes-csi/external-snapshotter
   ref:
     branch: master
