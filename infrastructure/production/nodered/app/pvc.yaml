@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: nodered-data
   namespace: home-automation
+  annotations:
+    volumeType: local
 spec:
   accessModes:
     - ReadWriteOnce

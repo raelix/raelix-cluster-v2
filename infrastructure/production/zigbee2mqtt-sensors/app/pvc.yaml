@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: z2m-sensors-data
   namespace: home-automation
+  annotations:
+    volumeType: local
 spec:
   accessModes:
     - ReadWriteOnce
