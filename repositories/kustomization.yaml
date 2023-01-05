@@ -4,7 +4,7 @@ resources:
   - ./jetstack.yaml
   - ./bitnami.yaml
   - ./external-snapshotter.yaml
-  - ./backcube.yaml
+  - ./backube.yaml
   - ./local-path-provisioner.yaml
   - ./bjw-s.yaml
   - ./emqx.yaml
