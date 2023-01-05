@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - ./jetstack.yaml
   - ./bitnami.yaml
+  - ./external-snapshotter.yaml
+  - ./backcube.yaml
   - ./local-path-provisioner.yaml
   - ./bjw-s.yaml
   - ./emqx.yaml
