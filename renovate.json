@@ -26,12 +26,6 @@
   },
   "extends": [
     "config:base",
-    ":dependencyDashboard",
-    ":disableRateLimiting",
-    "docker:enableMajor",
-    "docker:pinDigests",
-    ":automergeDigest",
-    ":enablePreCommit",
     "github>raelix/raelix-cluster-v2//.github/renovate:commit-message",
     "github>raelix/raelix-cluster-v2//.github/renovate:automerge-github-actions",
     "github>raelix/raelix-cluster-v2//.github/renovate:semantic-commit",
