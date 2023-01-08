@@ -3,7 +3,6 @@
   "username": "raelix-renovate",
   "gitAuthor": "raelix-renovate <279209+raelix-renovate[bot]@users.noreply.github.com>",
   "platform": "github",
-  "includeForks": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "rebaseWhen": "conflicted",
   "commitMessageTopic": "{{depName}}",
@@ -77,7 +76,7 @@
       "addLabels": [
         "helm"
       ],
-      "semanticCommitScope": "helm-chart"
+      "semanticCommitScope": "helm"
     },
     {
       "matchDatasources": [
@@ -86,7 +85,16 @@
       "addLabels": [
         "container"
       ],
-      "semanticCommitScope": "docker-image"
+      "semanticCommitScope": "container"
+    },
+    {
+      "matchDatasources": [
+        "flux"
+      ],
+      "addLabels": [
+        "flux"
+      ],
+      "semanticCommitScope": "flux"
     }
   ],
   "regexManagers": [
