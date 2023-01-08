@@ -32,9 +32,9 @@
     ":enablePreCommit",
     "docker:enableMajor",
     "docker:pinDigests",
-    "github>raelix/raelix-cluster-v2/.github/renovate:commit-message",
-    "github>raelix/raelix-cluster-v2/.github/renovate:automerge-github-actions",
-    "github>raelix/raelix-cluster-v2/.github/renovate:semantic-commit",
-    "github>raelix/raelix-cluster-v2/.github/renovate:generic-regex-manager"
+    "github>raelix/raelix-cluster-v2//.github/renovate:commit-message",
+    "github>raelix/raelix-cluster-v2//.github/renovate:automerge-github-actions",
+    "github>raelix/raelix-cluster-v2//.github/renovate:semantic-commit",
+    "github>raelix/raelix-cluster-v2//.github/renovate:generic-regex-manager"
   ]
 }
