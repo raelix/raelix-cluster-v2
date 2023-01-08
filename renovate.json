@@ -9,6 +9,7 @@
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
   "commitMessageSuffix": "",
+  "dependencyDashboard": true,
   "repositories": [
     "raelix/raelix-cluster-v2"
   ],
@@ -106,10 +107,7 @@
   ],
   "extends": [
     "config:base",
-    ":dependencyDashboard",
     ":disableRateLimiting",
-    "docker:enableMajor",
-    "docker:pinDigests",
     ":automergeDigest",
     ":enablePreCommit"
   ]
