@@ -4,7 +4,7 @@ metadata:
   name: emqx
   # namespace: message
 spec:
-  image: emqx/emqx:5.0.9
+  image: emqx/emqx:5.0.9@sha256:0a8564f4d0b5f6c0816a23f776bfd4302d7149139ed26ec119ff953576b1cbb1
   coreTemplate:
     spec:
       envFrom:
@@ -12,7 +12,7 @@ spec:
             name: dashboard-auth
       extraContainers:
       - name: users-creation
-        image: centos:latest
+        image: centos:latest@sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
         envFrom:
           - secretRef:
               name: dashboard-auth
