@@ -1,5 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dryRun": true,
+  "username": "raelix-renovate",
+  "gitAuthor": "raelix-renovate <279209+raelix-renovate[bot]@users.noreply.github.com>",
+  "platform": "github",
+  "includeForks": true,
+  "repositories": [
+    "raelix/raelix-cluster-v2"
+  ],
   "extends": [
     "config:base"
   ]
