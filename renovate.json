@@ -76,7 +76,7 @@
         "helm"
       ],
       "addLabels": [
-        "renovate/helm"
+        "helm"
       ],
       "semanticCommitScope": "helm-chart"
     },
@@ -85,7 +85,7 @@
         "docker"
       ],
       "addLabels": [
-        "renovate/container"
+        "container"
       ],
       "semanticCommitScope": "docker-image"
     }
