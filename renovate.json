@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "username": "raelix-renovate",
-  "gitAuthor": "raelix-renovate <279209+raelix-renovate[bot]@users.noreply.github.com>",
+  "gitAuthor": "raelix-renovate <122229815+raelix-renovate[bot]@users.noreply.github.com>",
   "platform": "github",
   "dependencyDashboardTitle": "Renovate Dashboard",
   "rebaseWhen": "conflicted",
