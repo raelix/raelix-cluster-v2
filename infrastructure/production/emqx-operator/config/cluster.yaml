@@ -4,7 +4,7 @@ metadata:
   name: emqx
   # namespace: message
 spec:
-  image: emqx/emqx:5.0.9
+  image: emqx/emqx:5.0.13@sha256:9629ae26acce04ec0066682f49b5c03b90e86a552898a43ff00ce3f00de5b31d
   coreTemplate:
     spec:
       envFrom:
