@@ -109,6 +109,7 @@
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":automergeDigest",
-    ":enablePreCommit"
+    ":enablePreCommit",
+    ":semanticCommits"
   ]
 }
