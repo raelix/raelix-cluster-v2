@@ -7,7 +7,6 @@
   "rebaseWhen": "conflicted",
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
-  "commitMessageSuffix": "",
   "repositories": [
     "raelix/raelix-cluster-v2"
   ],
