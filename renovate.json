@@ -4,6 +4,7 @@
   "platform": "github",
   "onboarding": false,
   "includeForks": true,
+  "branchPrefix": "renovate/",
   "requireConfig": "ignored",
   "dependencyDashboardTitle": "Renovate Dashboard",
   "rebaseWhen": "conflicted",
