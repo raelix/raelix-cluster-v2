@@ -3,10 +3,120 @@
   "username": "raelix-renovate",
   "gitAuthor": "raelix-renovate <122229815+raelix-renovate[bot]@users.noreply.github.com>",
   "platform": "github",
+  "dependencyDashboardTitle": "Renovate Dashboard",
+  "rebaseWhen": "conflicted",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
   "repositories": [
     "raelix/raelix-cluster-v2"
   ],
+  "flux": {
+    "fileMatch": [
+      "infrastructure/.+\\.ya?ml$"
+    ]
+  },
+  "helm-values": {
+    "fileMatch": [
+      "infrastructure/.+\\.ya?ml$"
+    ]
+  },
+  "kubernetes": {
+    "fileMatch": [
+      "infrastructure/.+\\.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "github-action",
+      "ignoreTests": true
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "labels": [
+        "type/major"
+      ],
+      "semanticCommitType": "feat",
+      "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}})!:"
+    },
+    {
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "labels": [
+        "type/minor"
+      ],
+      "semanticCommitType": "feat"
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "labels": [
+        "type/patch"
+      ],
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "addLabels": [
+        "helm"
+      ],
+      "semanticCommitScope": "helm"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "addLabels": [
+        "container"
+      ],
+      "semanticCommitScope": "container"
+    },
+    {
+      "matchDatasources": [
+        "flux"
+      ],
+      "addLabels": [
+        "flux"
+      ],
+      "semanticCommitScope": "flux"
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": [
+        "Process various dependencies in YAML files"
+      ],
+      "fileMatch": [
+        ".+\\.ya?ml$"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*=?))?( versionTemplate=(?<versionTemplate>.*=?))?\\n.*: ?(\"?(?<currentValue>[^\"\\n]+=?)\"?)"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "extractVersionTemplate": "{{#if versionTemplate}}{{{versionTemplate}}}{{else}}{{/if}}"
+    }
+  ],
   "extends": [
-    "config:base"
+    "config:base",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":automergeDigest",
+    ":enablePreCommit",
+    ":semanticCommits"
   ]
 }
