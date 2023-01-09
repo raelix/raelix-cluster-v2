@@ -50,8 +50,7 @@
       "labels": [
         "type/major"
       ],
-      "semanticCommitType": "feat",
-      "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}})!:"
+      "semanticCommitType": "feat"
     },
     {
       "matchUpdateTypes": [
