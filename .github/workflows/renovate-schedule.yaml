@@ -24,4 +24,4 @@ jobs:
           LOG_LEVEL: debug
         with:
           configurationFile: ./renovate.json
-          token: 'x-access-token:${{ steps.get_token.outputs.app_token }}'
+          token: ${{ steps.get_token.outputs.app_token }}
