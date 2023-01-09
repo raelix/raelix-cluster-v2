@@ -15,17 +15,17 @@
   ],
   "flux": {
     "fileMatch": [
-      "infrastructure/.+\\.ya?ml$"
+      ".+\\.ya?ml$"
     ]
   },
   "helm-values": {
     "fileMatch": [
-      "infrastructure/.+\\.ya?ml$"
+      ".+\\.ya?ml$"
     ]
   },
   "kubernetes": {
     "fileMatch": [
-      "infrastructure/.+\\.ya?ml$"
+      ".+\\.ya?ml$"
     ]
   },
   "packageRules": [
