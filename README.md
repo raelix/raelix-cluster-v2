@@ -1,5 +1,15 @@
 # raelix-cluster-v2
 
+### Requirements
+- sosps
+- pre-commit
+- flux (cli)
+- kubectl
+
+### Optional
+- task
+- helm
+
 ## Installation guide
 
 ### Deploy the secret containing the private-key
