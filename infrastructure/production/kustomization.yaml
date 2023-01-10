@@ -11,4 +11,3 @@ resources:
   - ./emqx-operator/ks.yaml
   - ./ring-mqtt/ks.yaml
   # - ./nodered/ks.yaml
-

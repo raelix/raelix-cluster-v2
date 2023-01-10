@@ -1,21 +1,21 @@
 # cloud:
-config:
-frontend:
+# config:
+# frontend:
 # history:
 # logbook:
-map:
-mobile_app:
-person:
-script:
-ssdp:
-sun:
-system_health:
-updater:
-zerocon:
+# map:
+# mobile_app:
+# person:
+# script:
+# ssdp:
+# sun:
+# system_health:
+# updater:
+# zerocon:
 
 # Load frontend themes from the themes folder
-frontend:
-  themes: !include_dir_merge_named themes
+# frontend:
+#   themes: !include_dir_merge_named themes
 
 # Text to speech
 tts:
@@ -27,9 +27,9 @@ http:
     - 10.42.0.0/24
 
 
-automation: 
-script: 
-scene: 
+# automation:
+# script:
+# scene:
 # automation: !include automations.yaml
 # script: !include scripts.yaml
 # scene: !include scenes.yaml
