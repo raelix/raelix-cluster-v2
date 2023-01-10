@@ -13,6 +13,16 @@ kubectl create secret generic sops-age \
 ```
 > N.B.: the flux-system may not be already present in that case create it with ```kubectl create ns flux-system```
 
+### Bootstrap
+Use this command to initialize and bootstrap flux. Use this command as well to run the flux upgrade
+```shell
+flux bootstrap github \
+--owner=raelix \
+--repository=raelix-cluster-v2  \
+--branch=main  \
+--path=clusters/production \
+--personal
+```
 ### Restore the cluster
 In order to restore the cluster you just need to apply the main flux resource. The main folder is ```cluster/production/flux-system```. You can use kustomize to render the manifest and apply them on the cluster.
 
