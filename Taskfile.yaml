@@ -1,0 +1,13 @@
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+
+includes:
+  k8s: .taskfiles/k8s/tasks.yaml
+tasks:
+  default:
+    silent: true
+    cmds:
+      - task -l
