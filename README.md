@@ -109,7 +109,7 @@ kubectl create secret generic secret-name --from-file=./user.json --dry-run=clie
 
 Where the user.json is like:
 ```json
-// this is just an example 
+// this is just an example
 {
   "user_id": "user",
   "password": "password",
