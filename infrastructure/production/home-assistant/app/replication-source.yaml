@@ -6,7 +6,7 @@ metadata:
 spec:
   sourcePVC: home-assistant-data
   trigger:
-    schedule: "*/1 * * * *"
+    schedule: "0 18 * * *"
   rclone:
     rcloneConfigSection: "gdrive"
     rcloneDestPath: "rclone/home-assistant"
