@@ -1,14 +1,14 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: ha-restore
+  name: home-assistant-restore
   namespace: home-automation
 spec:
   trigger:
     schedule: "*/1 * * * *"
   rclone:
     rcloneConfigSection: "gdrive"
-    rcloneDestPath: "rclone/ha-claim"
+    rcloneDestPath: "rclone/home-assistant"
     rcloneConfig: "rclone-secret"
     copyMethod: Direct
     accessModes: [ReadWriteOnce]
