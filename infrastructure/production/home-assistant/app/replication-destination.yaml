@@ -5,7 +5,7 @@ metadata:
   namespace: home-automation
 spec:
   trigger:
-    schedule: "*/1 * * * *"
+    schedule: "* * * * *"
   rclone:
     rcloneConfigSection: "gdrive"
     rcloneDestPath: "rclone/home-assistant"
