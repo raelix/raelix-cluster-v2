@@ -19,13 +19,9 @@ patches:
       kind: HelmRelease
       name: keycloak
     patch: |-
-      apiVersion: helm.toolkit.fluxcd.io/v2beta1
-      kind: HelmRelease
-      metadata:
-        name: keycloak
-        namespace: keycloak
-      spec:
-        valuesFrom:
+      - op: add
+        path: /spec/valuesFrom
+        value:
         - kind: ConfigMap
           name: keycloak-values
           valuesKey: values.yaml
