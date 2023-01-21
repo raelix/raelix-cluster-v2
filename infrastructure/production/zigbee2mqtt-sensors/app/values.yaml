@@ -20,20 +20,26 @@ service:
       http:
         port: 8099
 
-# Disabled temporary due to security constraint
-# ingress:
-#   main:
-#     enabled: true
-#     ingressClassName: "nginx"
-#     annotations:
-#       external-dns.home.arpa/enabled: "true"
-#     hosts:
-#       - host: &host "z2m-sensors.raelix.com"
-#         paths:
-#           - path: /
-#     tls:
-#       - hosts:
-#           - *host
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      external-dns.home.arpa/enabled: "true"
+      # kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/auth-url: "https://oauth2-proxy.raelix.com/oauth2/auth"
+      nginx.ingress.kubernetes.io/auth-signin: "https://oauth2-proxy.raelix.com/oauth2/start"
+      nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email"
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      ingress.kubernetes.io/proxy-body-size: "1024m"
+      nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
+    hosts:
+      - host: &host "z2m-sensors.raelix.com"
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - *host
 
 persistence:
   data:

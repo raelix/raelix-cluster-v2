@@ -7,4 +7,5 @@ resources:
   - ./backube.yaml
   - ./local-path-provisioner.yaml
   - ./bjw-s.yaml
+  - ./oauth2-proxy.yaml
   - ./emqx.yaml
