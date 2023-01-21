@@ -11,9 +11,9 @@ env:
 #   - secretRef:
 #       name: home-assistant-secrets
 
-  securityContext:
-    privileged: true
-    
+securityContext:
+  privileged: true
+
 service:
   main:
     ports:
