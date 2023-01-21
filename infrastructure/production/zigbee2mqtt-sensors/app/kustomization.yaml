@@ -18,13 +18,12 @@ patches:
       kind: HelmRelease
       name: zigbee2mqtt
     patch: |-
-      apiVersion: helm.toolkit.fluxcd.io/v2beta1
-      kind: HelmRelease
-      metadata:
-        name: zigbee2mqtt-sensors
-        namespace: home-automation
-      spec:
-        valuesFrom:
+      - op: edit
+        path: /metadata/name
+        value: zigbee2mqtt-sensors
+      - op: add
+        path: /spec/valuesFrom
+        value:
         - kind: ConfigMap
           name: zigbee2mqtt-sensors-values
           valuesKey: values.yaml
