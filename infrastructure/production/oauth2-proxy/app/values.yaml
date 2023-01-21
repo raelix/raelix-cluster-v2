@@ -5,7 +5,7 @@ config:
   configFile: |-
     provider = "oidc"
     provider_display_name = "Raelix HomeLab Login"
-    oidc_issuer_url = "https://dev-tpkvv6pf614lnn28.us.auth0.com"
+    oidc_issuer_url = "https://dev-tpkvv6pf614lnn28.us.auth0.com/"
     email_domains = [ "*" ]
     scope = "openid profile email"
     whitelist_domains = [".raelix.com"]
