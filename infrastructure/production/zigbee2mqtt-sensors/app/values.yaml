@@ -39,6 +39,7 @@ persistence:
     enabled: true
     type: hostPath
     hostPath: /dev/serial/by-id
+    hostPathType: Directory
   # configuration:
   #   enabled: true
   #   type: configMap
