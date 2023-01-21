@@ -24,7 +24,7 @@ ingress:
     annotations:
       external-dns.home.arpa/enabled: "true"
     hosts:
-      - host: &host "z2m-1.raelix.com"
+      - host: &host "z2m-sensors.raelix.com"
         paths:
           - path: /
     tls:
@@ -35,7 +35,10 @@ persistence:
   data:
     enabled: true
     existingClaim: z2m-sensors-data
-
+  usb:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/serial/by-id
   # configuration:
   #   enabled: true
   #   type: configMap
