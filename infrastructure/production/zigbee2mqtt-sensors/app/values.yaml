@@ -20,19 +20,20 @@ service:
       http:
         port: 8099
 
-ingress:
-  main:
-    enabled: true
-    ingressClassName: "nginx"
-    annotations:
-      external-dns.home.arpa/enabled: "true"
-    hosts:
-      - host: &host "z2m-sensors.raelix.com"
-        paths:
-          - path: /
-    tls:
-      - hosts:
-          - *host
+# Disabled temporary due to security constraint
+# ingress:
+#   main:
+#     enabled: true
+#     ingressClassName: "nginx"
+#     annotations:
+#       external-dns.home.arpa/enabled: "true"
+#     hosts:
+#       - host: &host "z2m-sensors.raelix.com"
+#         paths:
+#           - path: /
+#     tls:
+#       - hosts:
+#           - *host
 
 persistence:
   data:
