@@ -11,8 +11,10 @@ image:
 
 service:
   main:
+    type: NodePort
     ports:
       http:
+        nodePort: 31390
         port: 8123
 
 ingress:
