@@ -24,7 +24,7 @@ ingress:
     annotations:
       external-dns.home.arpa/enabled: "true"
     hosts:
-      - host: &host "z2m-sensors.raelix.com"
+      - host: &host "z2m-1.raelix.com"
         paths:
           - path: /
     tls:
