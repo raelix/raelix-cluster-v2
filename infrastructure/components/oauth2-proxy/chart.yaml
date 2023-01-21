@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: oauth2-proxy
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: oauth2-proxy
+      version: "6.8.x"
+      sourceRef:
+        kind: HelmRepository
+        name: oauth2-proxy
+        namespace: flux-system
+      interval: 12h
+  # values:
+  #   installCRDs: true
+  # valuesFrom:
+  # - kind: ConfigMap
+  #   name: cert-values

@@ -12,4 +12,5 @@ resources:
   - ./emqx-operator/ks.yaml
   - ./ring-mqtt/ks.yaml
   - ./zigbee2mqtt-sensors/ks.yaml
+  - ./oauth2-proxy/ks.yaml
   # - ./nodered/ks.yaml
