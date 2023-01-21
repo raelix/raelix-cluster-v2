@@ -20,20 +20,24 @@ spec:
         - name: mqtt-users
           readOnly: true
           mountPath: "/etc/mqtt-users"
+        - name: bootstrap-user
+          mountPath: /opt/emqx/data/bootstrap_user
+          readOnly: true
+          subPath: bootstrap_user
         command:
           - /bin/bash
           - -c
           - |
             echo "waiting web server to be ready"
             until $(curl --output /dev/null --silent --fail \
-            -u $EMQX_DASHBOARD__DEFAULT_USERNAME:$EMQX_DASHBOARD__DEFAULT_PASSWORD \
+            -u "$(cat /opt/emqx/data/bootstrap_user)" \
             http://localhost:18083/api/v5/monitor_current); do
               printf '.'
               sleep 5
             done
             echo "creating users..."
             curl --output /dev/null --silent \
-              -u $EMQX_DASHBOARD__DEFAULT_USERNAME:$EMQX_DASHBOARD__DEFAULT_PASSWORD \
+              -u "$(cat /opt/emqx/data/bootstrap_user)" \
               -X POST \
               -d @/etc/mqtt-users/users.json \
               'http://localhost:18083/api/v5/authentication/password_based%3Abuilt_in_database/users' \
