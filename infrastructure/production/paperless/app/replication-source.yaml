@@ -6,7 +6,7 @@ metadata:
 spec:
   sourcePVC: paperless-consume
   trigger:
-    schedule: "0 22 * * *"
+    schedule: "0 23 * * *"
   rclone:
     rcloneConfigSection: "gdrive"
     rcloneDestPath: "rclone/paperless/consume"
@@ -21,7 +21,7 @@ metadata:
 spec:
   sourcePVC: paperless-data
   trigger:
-    schedule: "0 22 * * *"
+    schedule: "0 23 * * *"
   rclone:
     rcloneConfigSection: "gdrive"
     rcloneDestPath: "rclone/paperless/data"
@@ -36,7 +36,7 @@ metadata:
 spec:
   sourcePVC: paperless-export
   trigger:
-    schedule: "0 22 * * *"
+    schedule: "0 23 * * *"
   rclone:
     rcloneConfigSection: "gdrive"
     rcloneDestPath: "rclone/paperless/export"
@@ -51,7 +51,7 @@ metadata:
 spec:
   sourcePVC: paperless-media
   trigger:
-    schedule: "0 22 * * *"
+    schedule: "0 23 * * *"
   rclone:
     rcloneConfigSection: "gdrive"
     rcloneDestPath: "rclone/paperless/media"
