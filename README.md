@@ -1,5 +1,6 @@
 # raelix-cluster-v2
 [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
+This repo is modified using coder on a Kubernetes cluster
 
 ### Requirements
 - sosps
