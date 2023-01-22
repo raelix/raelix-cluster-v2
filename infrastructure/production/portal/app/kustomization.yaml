@@ -10,7 +10,7 @@ configMapGenerator:
       - values.yaml=values.yaml
   - name: portal-configuration
     files:
-      - ./config.yaml
+      - ./config.yml
     options:
       disableNameSuffixHash: true
 
