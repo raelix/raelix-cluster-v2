@@ -59,15 +59,23 @@ ingress:
 persistence:
   data:
     enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
     mountPath: /usr/src/paperless/data
   media:
     enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
     mountPath: /usr/src/paperless/media
   consume:
     enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
     mountPath: /usr/src/paperless/consume
   export:
     enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
     mountPath: /usr/src/paperless/export
 
 resources:
