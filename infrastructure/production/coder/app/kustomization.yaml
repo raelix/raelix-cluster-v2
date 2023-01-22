@@ -4,23 +4,24 @@ namespace: hosted
 resources:
   - ./cloudnative-pg-postgres-superuser.yaml
   - ./cluster.yaml
-#   - ../../../components/coder
+  - ./coder-db-url.yaml
+  - ../../../components/coder
 
-# configMapGenerator:
-#   - name: coder-values
-#     files:
-#       - values.yaml=values.yaml
-# configurations:
-#   - kustomizeconfig.yaml
+configMapGenerator:
+  - name: coder-values
+    files:
+      - values.yaml=values.yaml
+configurations:
+  - kustomizeconfig.yaml
 
-# patches:
-#   - target:
-#       kind: HelmRelease
-#       name: coder
-#     patch: |-
-#       - op: add
-#         path: /spec/valuesFrom
-#         value:
-#         - kind: ConfigMap
-#           name: coder-values
-#           valuesKey: values.yaml
+patches:
+  - target:
+      kind: HelmRelease
+      name: coder
+    patch: |-
+      - op: add
+        path: /spec/valuesFrom
+        value:
+        - kind: ConfigMap
+          name: coder-values
+          valuesKey: values.yaml
