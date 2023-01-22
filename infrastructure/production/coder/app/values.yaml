@@ -10,3 +10,9 @@ coder:
     # If you're just trying Coder, access the dashboard via the service IP.
     # - name: CODER_ACCESS_URL
     #   value: "https://coder.example.com"
+  service:
+    # coder.service.enable -- Whether to create the Service object.
+    enable: true
+    # coder.service.type -- The type of service to expose. See:
+    # https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+    type: NodePort
