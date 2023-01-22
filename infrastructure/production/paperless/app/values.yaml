@@ -1,0 +1,390 @@
+proxyAddressForwarding: true
+
+metrics:
+  # enabled: true
+  enabled: false
+  service:
+    ports:
+      http: 9990
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "{{ .Values.metrics.service.ports.http }}"
+
+  serviceMonitor:
+    enabled: false
+    # enabled: true
+    namespace: "monitoring"
+
+postgresql:
+  enabled: true
+  auth:
+    username: bn_keycloak
+    database: bitnami_keycloak
+    existingSecret: keycloak-postgresql-auth
+
+extraEnvVars:
+- name: PROXY_ADDRESS_FORWARDING
+  value: "true"
+- name: KEYCLOAK_ENABLE_STATISTICS
+  value: "true"
+- name: KEYCLOAK_STATISTICS
+  value: all
+
+service:
+  type: ClusterIP
+
+# nodePorts:
+#   http: "31391"
+#   https: "31390"
+
+ingress:
+  enabled: true
+  ingressClassName: ""
+  pathType: ImplementationSpecific
+  apiVersion: ""
+  # hostname: raelix-clusters.duckdns.org
+  # path: "/auth"
+  hostname: auth.raelix.com
+  path: "/"
+  tls: true
+
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+auth:
+  adminUser: user
+
+  existingSecret: keycloak-auth
+    # keyMapping:
+    #   admin-password: myPasswordKey
+    #   management-password: myManagementPasswordKey
+
+# extraVolumeMounts:
+#   - name: providers
+#     mountPath: /opt/bitnami/keycloak/providers
+
+# extraVolumes:
+#   - name: providers
+#     emptyDir: {}
+
+# initContainers:
+#   - name: metrics-spi-provider
+#     image: busybox:latest
+#     imagePullPolicy: Always
+#     command:
+#       - sh
+#     args:
+#       - -c
+#       - |
+#         KEYCLOAK_METRICS_SPI_VERSION=2.5.3
+#         wget --no-check-certificate -O /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar \
+#           https://github.com/aerogear/keycloak-metrics-spi/releases/download/${KEYCLOAK_METRICS_SPI_VERSION}/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar
+#         chmod +x /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar
+#         touch /providers/keycloak-metrics-spi-${KEYCLOAK_METRICS_SPI_VERSION}.jar.dodeploy
+#     volumeMounts:
+#       - name: providers
+#         mountPath: /providers
+
+keycloakConfigCli:
+  enabled: true
+  configuration:
+    realm.json: |
+      {
+        "realm": "master",
+        "clientScopes": [
+          {
+            "name": "groups",
+            "protocol": "openid-connect",
+            "protocolMappers": [
+              {
+                "name": "groups",
+                "protocol": "openid-connect",
+                "protocolMapper": "oidc-group-membership-mapper",
+                "config": {
+                  "id.token.claim": "true",
+                  "access.token.claim": "true",
+                  "claim.name": "groups",
+                  "userinfo.token.claim": "true"
+                }
+              }
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "name": "oauth2-proxy"
+          },
+          {
+            "name": "grafana-dev"
+          },
+          {
+            "name": "grafana-admin"
+          },
+          {
+            "name": "ArgoCDAdmins"
+          },
+          {
+            "name": "ArgoCDViewers"
+          },
+          {
+            "name": "admin"
+          },
+          {
+            "name": "movie"
+          }
+        ],
+        "clients": [
+          {
+            "clientId": "oauth2-proxy",
+            "enabled": true,
+            "clientAuthenticatorType": "client-secret",
+            "secret": "oauth2-client-secret",
+            "redirectUris": [
+              "https://oauth2-proxy.raelix.com/oauth2/callback"
+            ],
+            "defaultClientScopes": [
+              "email",
+              "groups",
+              "profile"
+            ],
+            "optionalClientScopes": [
+              "address",
+              "microprofile-jwt",
+              "offline_access",
+              "phone",
+              "roles",
+              "web-origins"
+            ],
+            "protocolMappers": [
+              {
+                "name": "groups",
+                "protocol": "openid-connect",
+                "protocolMapper": "oidc-group-membership-mapper",
+                "config": {
+                  "id.token.claim": "true",
+                  "access.token.claim": "true",
+                  "claim.name": "groups",
+                  "userinfo.token.claim": "true"
+                }
+              }
+            ]
+          },
+          {
+            "clientId": "grafana",
+            "enabled": true,
+            "clientAuthenticatorType": "client-secret",
+            "secret": "grafana-client-secret",
+            "redirectUris": [
+              "https://grafana.raelix.com/login/generic_oauth"
+            ],
+            "defaultClientScopes": [
+              "email",
+              "groups",
+              "profile",
+              "roles",
+              "web-origins"
+            ],
+            "optionalClientScopes": [
+              "address",
+              "microprofile-jwt",
+              "offline_access",
+              "phone"
+            ],
+            "protocolMappers": [
+              {
+                "name": "groups",
+                "protocol": "openid-connect",
+                "protocolMapper": "oidc-group-membership-mapper",
+                "config": {
+                  "id.token.claim": "true",
+                  "access.token.claim": "true",
+                  "claim.name": "groups",
+                  "userinfo.token.claim": "true"
+                }
+              }
+            ]
+          },
+          {
+            "clientId": "argocd",
+            "enabled": true,
+            "clientAuthenticatorType": "client-secret",
+            "secret": "argocd-client-secret",
+            "redirectUris": [
+              "https://argocd.raelix.com/auth/callback"
+            ],
+            "defaultClientScopes": [
+              "email",
+              "groups",
+              "profile",
+              "roles",
+              "web-origins"
+            ],
+            "optionalClientScopes": [
+              "address",
+              "microprofile-jwt",
+              "offline_access",
+              "phone"
+            ],
+            "protocolMappers": [
+              {
+                "name": "groups",
+                "protocol": "openid-connect",
+                "protocolMapper": "oidc-group-membership-mapper",
+                "config": {
+                  "id.token.claim": "true",
+                  "access.token.claim": "true",
+                  "claim.name": "groups",
+                  "userinfo.token.claim": "true"
+                }
+              }
+            ]
+          },
+          {
+            "clientId": "rancher",
+            "enabled": true,
+            "clientAuthenticatorType": "client-secret",
+            "secret": "rancher-client-secret",
+            "redirectUris": [
+              "https://rancher.raelix.com/verify-auth"
+            ],
+            "defaultClientScopes": [
+              "email",
+              "groups",
+              "profile",
+              "roles",
+              "web-origins"
+            ],
+            "optionalClientScopes": [
+              "address",
+              "microprofile-jwt",
+              "offline_access",
+              "phone"
+            ],
+            "protocolMappers": [
+              {
+                "name": "groups",
+                "protocol": "openid-connect",
+                "protocolMapper": "oidc-group-membership-mapper",
+                "config": {
+                  "id.token.claim": "true",
+                  "access.token.claim": "true",
+                  "claim.name": "groups",
+                  "userinfo.token.claim": "true"
+                }
+              },
+              {
+                "name": "Client Audience",
+                "protocol": "openid-connect",
+                "protocolMapper": "oidc-audience-mapper",
+                "consentRequired": false,
+                "config": {
+                    "included.client.audience": "rancher",
+                    "id.token.claim": "false",
+                    "access.token.claim": "true"
+                }
+              }
+            ]
+          }
+        ],
+        "users": [
+          {
+            "username": "user",
+            "email": "user@raelix.com",
+            "enabled": true,
+            "firstName": "user",
+            "lastName": "user",
+            "realmRoles": [
+              "admin",
+              "default-roles-master"
+            ],
+            "attributes": [
+              {
+                "locale": [
+                  "it"
+                ]
+              }
+            ]
+          },
+          {
+            "username": "raelix",
+            "email": "raelix@hotmail.it",
+            "enabled": true,
+            "firstName": "raelix",
+            "lastName": "raelix",
+            "realmRoles": [
+              "admin",
+              "create-realm",
+              "offline_access",
+              "uma_authorization",
+              "default-roles-master"
+            ],
+            "groups": [
+              "grafana-admin",
+              "ArgoCDAdmins",
+              "oauth2-proxy",
+              "admin"
+            ],
+            "attributes": [
+              {
+                "locale": [
+                  "it"
+                ]
+              }
+            ]
+          },
+          {
+            "username": "film",
+            "email": "film@raelix.com",
+            "enabled": true,
+            "firstName": "film",
+            "lastName": "film",
+            "emailVerified": true,
+            "groups": [
+              "movie"
+            ],
+            "credentials": [
+              {
+                "type": "password",
+                "userLabel": "initial",
+                "value": "film"
+              }
+            ],
+            "attributes": [
+              {
+                "locale": [
+                  "it"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+# {
+#   "username": "viewer",
+#   "email": "viewer@raelix.com",
+#   "enabled": true,
+#   "firstName": "viewer",
+#   "lastName": "viewer",
+#   "groups": [
+#     "grafana-dev",
+#     "ArgoCDViewers"
+#   ],
+#   "credentials": [
+#     {
+#       "type": "password",
+#       "userLabel": "initial",
+#       "value": "viewer"
+#     }
+#   ],
+#   "attributes": [
+#     {
+#       "locale": [
+#         "it"
+#       ]
+#     }
+#   ]
+# }
