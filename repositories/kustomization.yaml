@@ -9,3 +9,5 @@ resources:
   - ./bjw-s.yaml
   - ./oauth2-proxy.yaml
   - ./emqx.yaml
+  - ./cloudnative-pg.yaml
+  - ./coder.yaml
