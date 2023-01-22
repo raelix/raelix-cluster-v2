@@ -1,0 +1,181 @@
+title: "Home Dashboard"
+subtitle: "Raelix"
+
+logo: "https://upload.wikimedia.org/wikipedia/commons/0/00/Kubernetes_%28container_engine%29.png"
+# Alternatively a fa icon can be provided:
+# icon: "fas fa-skull-crossbones"
+
+header: true # Set to false to hide the header
+# Optional: Different hotkey for search, defaults to "/"
+# hotkey:
+#   search: "Shift"
+footer: false
+
+columns: "3" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example).
+                        # You should set it to true when using an authentication proxy, it also reloads the page when a redirection is detected when checking connectivity.
+
+# Optional: Proxy / hosting option
+proxy:
+  useCredentials: false # send cookies & authorization headers when fetching service specific data. Set to `true` if you use an authentication proxy. Can be overrided on service level. 
+
+# Set the default layout and color scheme
+defaults:
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: dark # One of 'auto', 'light', or 'dark'
+
+# Optional theming
+theme: default # 'default' or one of the themes available in 'src/assets/themes'.
+
+# Optional custom stylesheet
+# Will load custom CSS files. Especially useful for custom icon sets.
+# stylesheet:
+#   - "assets/custom.css"
+
+# Here is the exhaustive list of customization parameters
+# However all value are optional and will fallback to default if not set.
+# if you want to change only some of the colors, feel free to remove all unused key.
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#424242"
+    text-title: "#424242"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+    # background-image: "assets/your/light/bg.png"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+    # background-image: "assets/your/dark/bg.png"
+
+# Optional message
+# message:
+  # url: "https://<my-api-endpoint>" # Can fetch information from an endpoint to override value below.
+  # mapping: # allows to map fields from the remote format to the one expected by Homer
+  #   title: 'id' # use value from field 'id' as title
+  #   content: 'value' # value from field 'value' as content
+  # refreshInterval: 10000 # Optional: time interval to refresh message
+  #
+  # Real example using chucknorris.io for showing Chuck Norris facts as messages:
+  # url: https://api.chucknorris.io/jokes/random
+  # mapping:
+  #   title: 'id'
+  #   content: 'value'
+  # refreshInterval: 10000
+  # style: "is-warning"
+  # title: "Optional message!"
+  # icon: "fa fa-exclamation-triangle"
+  # content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Home Assistant"
+    icon: "fas fa-home"
+    url: "https://ha.raelix.com"
+    target: "_blank" # optional html tag target attribute
+  # - name: "link 2"
+  #   icon: "fas fa-book"
+  #   url: "https://github.com/bastienwirtz/homer"
+  # # this will link to a second homer page that will load config from page2.yml and keep default config values as in config.yml file
+  # # see url field and assets/page.yml used in this example:
+  # - name: "Second Page"
+  #   icon: "fas fa-file-alt"
+  #   url: "#page2"
+
+# Services
+# First level array represents a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Home"
+    icon: "fas fa-home"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    items:
+      - name: "Home Assistant"
+        logo: "https://www.home-assistant.io/images/home-assistant-logo.svg"
+        # icon: "fab fa-jenkins"
+        subtitle: "Home assistant"
+        tag: ""
+        keywords: "home-assistant home self-hosted" 
+        url: "https://ha.raelix.com"
+        target: "_blank"
+      - name: "Visual Studio Code"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/archive/9/9a/20200830031621%21Visual_Studio_Code_1.35_icon.svg"
+        subtitle: "Home Assistant configuration"
+        tag: ""
+        keywords: "home vscode code self-hosted" 
+        tagstyle: "is-success"
+        url: "https://code.raelix.com"
+      - name: "EMQX"
+        logo: "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,w_120,h_120/https://dashboard.snapcraft.io/site_media/appmedia/2022/07/emqx.png"
+        subtitle: "Broker MQTT"
+        tag: ""
+        keywords: "home mqtt self-hosted" 
+        tagstyle: "is-success"
+        url: "https://mqtt.raelix.com"
+      - name: "ZigBee2MQTT"
+        logo: "https://www.zigbee2mqtt.io/logo.png"
+        subtitle: "Switches"
+        tag: ""
+        keywords: "home mqtt zigbee self-hosted" 
+        tagstyle: "is-success"
+        url: "https://z2m-switches.raelix.com"
+      - name: "ZigBee2MQTT"
+        logo: "https://www.zigbee2mqtt.io/logo.png"
+        subtitle: "Sensors"
+        tag: ""
+        keywords: "home mqtt zigbee self-hosted" 
+        tagstyle: "is-success"
+        url: "https://z2m-sensors.raelix.com"
+  - name: "Apps"
+    icon: "fas fa-cubes"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    items:
+      - name: "Paperless"
+        icon: "fas fa-leaf"
+        # logo: "https://avatars.githubusercontent.com/u/99562962?s=200&v=4"
+        subtitle: "Digital Documents"
+        tag: ""
+        keywords: "paperless doc self-hosted" 
+        url: "https://paperless.raelix.com"
+        target: "_blank"
+  - name: "Automation"
+    icon: "fas fa-code-fork"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    items:
+      - name: "FluxCD Dashboard"
+        # icon: "fas fa-leaf"
+        logo: "https://avatars.githubusercontent.com/u/25348533?s=200&v=4"
+        subtitle: "Weave Work"
+        tag: ""
+        keywords: "automation flux" 
+        url: "https://gitops.raelix.com"
+        target: "_blank"
+      - name: "Coder"
+        # logo: "https://avatars.githubusercontent.com/u/99562962?s=200&v=4"
+        icon: "fas fa-terminal"
+        subtitle: "Developer Workspaces"
+        tag: ""
+        keywords: "coder workspace self-hosted" 
+        url: "https://coder.raelix.com"
+        target: "_blank"

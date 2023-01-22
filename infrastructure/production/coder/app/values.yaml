@@ -12,7 +12,7 @@ coder:
     enable: true
     # coder.service.type -- The type of service to expose. See:
     # https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-    type: NodePort
+    type: ClusterIP
   # coder.ingress -- The Ingress object to expose for Coder.
   ingress:
     # coder.ingress.enable -- Whether to create the Ingress object. If using an
