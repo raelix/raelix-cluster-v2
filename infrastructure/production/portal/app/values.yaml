@@ -38,7 +38,7 @@ persistence:
     type: configMap
     name: portal-configuration
     key: config.yml
-    defaultMode: 777
+    defaultMode: 0777
     subPath:
       - path: config.yml
         mountPath: /www/assets/config.yml
