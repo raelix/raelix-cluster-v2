@@ -8,9 +8,10 @@ resources:
   # - ./keycloak/ks.yaml
   - ./weave-gitops-dashboard/ks.yaml
   - ./home-automation/ks.yaml
+  - ./oauth2-proxy/ks.yaml
   - ./home-assistant/ks.yaml
   - ./emqx-operator/ks.yaml
   - ./ring-mqtt/ks.yaml
   - ./zigbee2mqtt-sensors/ks.yaml
-  - ./oauth2-proxy/ks.yaml
+  - ./zigbee2mqtt-switches/ks.yaml
   # - ./nodered/ks.yaml

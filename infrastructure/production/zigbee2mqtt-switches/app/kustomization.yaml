@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: home-automation
+resources:
+  - ./pvc.yaml
+  - ../../../components/zigbee2mqtt
+  - ./replication-source.yaml
+
+configMapGenerator:
+  - name: zigbee2mqtt-switches-values
+    files:
+      - values.yaml=values.yaml
+
+configurations:
+  - kustomizeconfig.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: zigbee2mqtt
+    patch: |-
+      - op: add
+        path: /metadata/name
+        value: zigbee2mqtt-switches
+      - op: add
+        path: /spec/valuesFrom
+        value:
+        - kind: ConfigMap
+          name: zigbee2mqtt-switches-values
+          valuesKey: values.yaml

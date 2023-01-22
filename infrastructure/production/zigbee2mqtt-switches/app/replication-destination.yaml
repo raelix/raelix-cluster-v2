@@ -1,0 +1,17 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: z2m-switches-restore
+  namespace: home-automation
+spec:
+  trigger:
+    schedule: "* * * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/z2m-switches"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
+    accessModes: [ReadWriteOnce]
+    capacity: 1Gi
+    destinationPVC: z2m-switches-data
+    storageClassName: local-path
