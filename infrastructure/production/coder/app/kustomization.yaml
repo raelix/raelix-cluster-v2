@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: hosted
+resources:
+  - ./cloudnative-pg-postgres-superuser.yaml
+  - ./cluster.yaml
+#   - ../../../components/coder
+
+# configMapGenerator:
+#   - name: coder-values
+#     files:
+#       - values.yaml=values.yaml
+# configurations:
+#   - kustomizeconfig.yaml
+
+# patches:
+#   - target:
+#       kind: HelmRelease
+#       name: coder
+#     patch: |-
+#       - op: add
+#         path: /spec/valuesFrom
+#         value:
+#         - kind: ConfigMap
+#           name: coder-values
+#           valuesKey: values.yaml

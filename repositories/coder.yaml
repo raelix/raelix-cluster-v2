@@ -1,8 +1,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: backube
+  name: coder
   namespace: flux-system
 spec:
-  interval: 24h
-  url: https://backube.github.io/helm-charts/
+  interval: 30m
+  url: https://helm.coder.com/v2
+  timeout: 3m

@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: coder
+  namespace: hosted
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: coder
+      version: "1.39.x"
+      sourceRef:
+        kind: HelmRepository
+        name: coder
+        namespace: flux-system
