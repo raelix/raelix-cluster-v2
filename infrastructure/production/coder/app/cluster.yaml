@@ -13,7 +13,7 @@ spec:
   bootstrap:
     initdb:
       database: coder
-      owner: root
+      owner: postgres
       secret:
         name: cloudnative-pg-postgres-superuser
   superuserSecret:
