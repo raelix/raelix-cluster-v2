@@ -1,0 +1,59 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: paperless-consume-backup
+  namespace: hosted
+spec:
+  sourcePVC: paperless-consume
+  trigger:
+    schedule: "0 22 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/paperless/consume"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: paperless-data-backup
+  namespace: hosted
+spec:
+  sourcePVC: paperless-data
+  trigger:
+    schedule: "0 22 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/paperless/data"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: paperless-export-backup
+  namespace: hosted
+spec:
+  sourcePVC: paperless-export
+  trigger:
+    schedule: "0 22 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/paperless/export"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: paperless-media-backup
+  namespace: hosted
+spec:
+  sourcePVC: paperless-media
+  trigger:
+    schedule: "0 22 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/paperless/media"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
