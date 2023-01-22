@@ -4,6 +4,7 @@ namespace: hosted
 resources:
   - ./paperless-secrets.yaml
   - ../../../components/paperless
+  - ./replication-source.yaml
 
 configMapGenerator:
   - name: paperless-values
