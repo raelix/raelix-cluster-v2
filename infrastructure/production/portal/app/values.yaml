@@ -40,7 +40,7 @@ persistence:
     key: config.yml
     defaultMode: 256
     subPath:
-      - path: config.yaml
+      - path: config.yml
         mountPath: /www/assets/config.yml
 
 probes:
