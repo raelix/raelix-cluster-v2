@@ -1,0 +1,76 @@
+image:
+  repository: docker.io/koenkk/zigbee2mqtt
+  tag: 1.29.2
+
+env:
+  ZIGBEE2MQTT_DATA: /data
+# podAnnotations:
+#   secret.reloader.stakater.com/reload: home-assistant-secrets
+
+# envFrom:
+#   - secretRef:
+#       name: home-assistant-secrets
+
+securityContext:
+  privileged: true
+
+service:
+  main:
+    ports:
+      http:
+        port: 8099
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      external-dns.home.arpa/enabled: "true"
+      # kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/auth-url: "https://oauth2-proxy.raelix.com/oauth2/auth"
+      nginx.ingress.kubernetes.io/auth-signin: "https://oauth2-proxy.raelix.com/oauth2/start"
+      nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email"
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      ingress.kubernetes.io/proxy-body-size: "1024m"
+      nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
+    hosts:
+      - host: &host "z2m-switches.raelix.com"
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - *host
+
+persistence:
+  data:
+    enabled: true
+    existingClaim: z2m-switches-data
+  usb:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/serial/by-id
+    hostPathType: Directory
+  # configuration:
+  #   enabled: true
+  #   type: configMap
+  #   name: home-assistant-configuration
+  #   key: configuration.yaml
+  #   defaultMode: 256
+  #   subPath:
+  #     - path: configuration.yaml
+  #       mountPath: /config/configuration.yaml
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+resources:
+  requests:
+    cpu: 126m
+    memory: 411M
+  limits:
+    memory: 4417M

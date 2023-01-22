@@ -1,0 +1,14 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: z2m-switches-backup
+  namespace: home-automation
+spec:
+  sourcePVC: z2m-switches-data
+  trigger:
+    schedule: "0 18 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/z2m-switches"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
