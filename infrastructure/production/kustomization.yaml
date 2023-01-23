@@ -11,6 +11,7 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./weave-gitops-dashboard/ks.yaml
   - ./hosted/ks.yaml
+  - ./portal/ks.yaml
   - ./coder/ks.yaml
   - ./paperless/ks.yaml
   - ./home-automation/ks.yaml
