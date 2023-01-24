@@ -45,3 +45,5 @@ spec:
         - --validating-webhook-key=/usr/local/certificates/key
         - --watch-ingress-without-class=true
         - --default-ssl-certificate=cert-manager/wildcard-cert
+        name: rke2-ingress-nginx-controller
+        image: rancher/nginx-ingress-controller:nginx-1.4.1-hardened2
