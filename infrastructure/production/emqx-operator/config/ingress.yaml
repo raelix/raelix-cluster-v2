@@ -17,4 +17,4 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - '*.raelix.com'
+    - 'mqtt.raelix.com'
