@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    deprecated.daemonset.template.generation: "4"
+    meta.helm.sh/release-name: rke2-ingress-nginx
+    meta.helm.sh/release-namespace: kube-system
+    kustomize.toolkit.fluxcd.io/prune: disabled
+    kustomize.toolkit.fluxcd.io/ssa: merge
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: rke2-ingress-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: rke2-ingress-nginx
+    app.kubernetes.io/part-of: rke2-ingress-nginx
+    app.kubernetes.io/version: 1.2.0
+    helm.sh/chart: rke2-ingress-nginx-4.1.008
+  name: rke2-ingress-nginx-controller
+  namespace: kube-system
+  # resourceVersion: "16529149"
+  # uid: 5dd95df8-2bce-41ca-80e9-a25ab9475859
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: rke2-ingress-nginx
+      app.kubernetes.io/name: rke2-ingress-nginx
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: controller
+        app.kubernetes.io/instance: rke2-ingress-nginx
+        app.kubernetes.io/name: rke2-ingress-nginx
+    spec:
+      containers:
+      - args:
+        - /nginx-ingress-controller
+        - --election-id=ingress-controller-leader
+        - --controller-class=k8s.io/ingress-nginx
+        - --ingress-class=nginx
+        - --configmap=$(POD_NAMESPACE)/rke2-ingress-nginx-controller
+        - --validating-webhook=:8443
+        - --validating-webhook-certificate=/usr/local/certificates/cert
+        - --validating-webhook-key=/usr/local/certificates/key
+        - --watch-ingress-without-class=true
+        - --default-ssl-certificate=cert-manager/wildcard-cert
