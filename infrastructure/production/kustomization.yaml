@@ -4,6 +4,7 @@ resources:
   - ./cert-manager/ks.yaml
   - ./local-path-provisioner/ks.yaml
   - ./external-snapshotter/ks.yaml
+  - ./external-dns/ks.yaml
   - ./volsync/ks.yaml
   - ./keycloak/ks.yaml 
   - ./oauth2-proxy/ks.yaml

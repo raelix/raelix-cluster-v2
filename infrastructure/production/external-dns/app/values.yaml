@@ -1,0 +1,24 @@
+sources:
+  - ingress
+registry: noop
+policy: upsert-only
+provider: pihole
+env:
+- name: EXTERNAL_DNS_PIHOLE_SERVER
+  valueFrom:
+    secretKeyRef:
+      name: external-dns-config
+      key: server
+      optional: false 
+- name: EXTERNAL_DNS_PIHOLE_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: external-dns-config
+      key: password
+      optional: false
+- name: EXTERNAL_DNS_PIHOLE_TLS_SKIP_VERIFY
+  valueFrom:
+    secretKeyRef:
+      name: external-dns-config
+      key: skip-tls-verify
+      optional: false

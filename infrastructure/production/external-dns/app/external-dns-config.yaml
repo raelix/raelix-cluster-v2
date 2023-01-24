@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: external-dns-config
+    namespace: hosted
+type: Opaque
+data:
+    server: ENC[AES256_GCM,data:tkEWGG5ezHEtaqGblylfVzkJbkgjiLGyqdZH1w==,iv:C1ukb0px7T0F7+Az3Zz5oCmqfuE4wnGFJPvu7pphQUo=,tag:6V8idWu9IzPCjU2VHBZ+Kg==,type:str]
+    password: ENC[AES256_GCM,data:LQiV96qVEnIHQdKq,iv:Dt6bysjbviQ13GWnD71MUw7S95AElUVqULNkSFh8cBc=,tag:m0oTvPfl2WCSnGZMP2Eosw==,type:str]
+    skip-tls-verify: ENC[AES256_GCM,data:qOMEIem/iNM=,iv:7LRPYQ1EJjAC901kxkTxNcwqNqrueWdP3QtxqWXRrdM=,tag:CyrfNMwLYRt2jHdzQ37R2A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsUGFEaW01OE9uenU5YmVF
+            Wi8zUXBFZUZLQ2FDUGJVN0xYLzZkMFJoUFRnClZPaW5MbHZqZGJ4bnRuOGM4Wi9T
+            QUliWjJzcUE5bFdKY0pIc2Fmckd3b0UKLS0tIGp5akozekE4ZS9rTmlnd2l4WWpl
+            dy9YMEFFTFA3VVN2V0h1RzZuWFR5eGcKbb0y1vpcA2O9iJBmNzLO/k/manAUZPz+
+            ci7Y0NDYUyFgIaJF//0ekmiXffAOfCuM3EwtdH7j3BYW+8tY2Oo4YA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-01-24T21:07:37Z"
+    mac: ENC[AES256_GCM,data:WpXmQWXF/q/Oxc3lj5IEJU2XEBAdOMkDVryQHXwpM0c/AXZaCLWS9uaPRsc437hTU9QB21WGou4bfxZxnD6dpGnTTA9VpURNoQzDhQWqcCOMORzJ8JHwn9bantDcLtkdgOF01TewFjUIFjGYi9xB8uUvu83urgbrVM6F8W7EzDo=,iv:mgdG+BGtJUzLH44J0fMGbxEVDrzuRPxcHJsSlMTHxRs=,tag:NEr1aPObWqKAdvpf05ehlA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
