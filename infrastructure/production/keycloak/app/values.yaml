@@ -90,7 +90,7 @@ auth:
 
 keycloakConfigCli:
   enabled: true
-  configuration:
+  configurations:
     realm.json: |
       {
         "realm": "master",
