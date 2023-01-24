@@ -5,3 +5,4 @@ resources:
   - ./cloudflare-api-token.yaml
   - ./cluster-issuer.yaml
   - ./wildcard-cert.yaml
+  - ./patch-nginx-ingress-controller.ayml
