@@ -50,4 +50,4 @@ spec:
             pathType: ImplementationSpecific
       tls:
        - hosts:
-           - '*.raelix.com'
+           - 'gitops.raelix.com'
