@@ -22,3 +22,7 @@ env:
       name: external-dns-config
       key: skip-tls-verify
       optional: false
+
+image:
+  repository: registry.k8s.io/external-dns/external-dns
+  tag: v0.13.2
