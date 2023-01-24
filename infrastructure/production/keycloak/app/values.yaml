@@ -25,8 +25,8 @@ postgresql:
 extraEnvVars:
 - name: PROXY_ADDRESS_FORWARDING
   value: "true"
-- name: KEYCLOAK_ENABLE_STATISTICS
-  value: "true"
+# - name: KEYCLOAK_ENABLE_STATISTICS
+#   value: "true"
 - name: KEYCLOAK_STATISTICS
   value: all
 
@@ -90,7 +90,7 @@ auth:
 
 keycloakConfigCli:
   enabled: true
-  configurations:
+  configuration:
     realm.json: |
       {
         "realm": "master",
