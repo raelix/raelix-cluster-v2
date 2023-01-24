@@ -4,6 +4,7 @@ resources:
   - ./jetstack.yaml
   - ./bitnami.yaml
   - ./external-snapshotter.yaml
+  - ./external-dns.yaml
   - ./backube.yaml
   - ./local-path-provisioner.yaml
   - ./bjw-s.yaml
