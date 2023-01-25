@@ -25,12 +25,12 @@ ingress:
       nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
       external-dns.home.arpa/enabled: "true"
     hosts:
-      - host: &host portal.${DOMAIN}
+      - host: portal.${DOMAIN}
         paths:
           - path: /
     tls:
       - hosts:
-          - *host
+          - portal.${DOMAIN}
 
 persistence:
   configuration:
