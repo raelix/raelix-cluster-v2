@@ -6,8 +6,7 @@ resources:
   - ./external-snapshotter/ks.yaml
   - ./external-dns/ks.yaml
   - ./volsync/ks.yaml
-  # - ./keycloak/ks.yaml 
-  - ../overlay/
+  - ./keycloak/ks.yaml 
   - ./oauth2-proxy/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./redis/ks.yaml
@@ -23,3 +22,8 @@ resources:
   - ./zigbee2mqtt-sensors/ks.yaml
   - ./zigbee2mqtt-switches/ks.yaml
   # - ./nodered/ks.yaml
+configMapGenerator:
+- name: cluster-vars
+  namespace: flux-system
+  literals:
+  - DOMAIN=raelix.com
