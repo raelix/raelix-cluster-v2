@@ -27,3 +27,5 @@ configMapGenerator:
   namespace: flux-system
   literals:
   - DOMAIN=raelix.com
+  options:
+    disableNameSuffixHash: true
