@@ -1,7 +1,7 @@
 coder:
   env:
     - name: CODER_OIDC_ISSUER_URL
-      value: https://dev-tpkvv6pf614lnn28.us.auth0.com
+      value: https://dev-tpkvv6pf614lnn28.us.auth0.com/
     - name: CODER_OIDC_EMAIL_DOMAIN
       value: raelix.com
     - name: CODER_OIDC_CLIENT_ID
