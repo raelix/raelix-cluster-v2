@@ -9,12 +9,15 @@ image:
 #   - secretRef:
 #       name: home-assistant-secrets
 
+dnsPolicy: ClusterFirstWithHostNet
+
+hostNetwork: true
+
 service:
   main:
-    type: NodePort
+    type: ClusterIP
     ports:
       http:
-        nodePort: 31390
         port: 8123
 
 ingress:
