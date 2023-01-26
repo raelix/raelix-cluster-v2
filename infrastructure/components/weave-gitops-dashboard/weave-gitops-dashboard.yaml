@@ -38,7 +38,7 @@ spec:
       create: true
       clientID: grafana
       clientSecret: grafana-client-secret
-      issuerURL: https://auth.raelix.com
+      issuerURL: https://auth.raelix.com/realms/master
       redirectURL: https://gitops.raelix.com/oauth2/callback
     adminUser:
       create: true
