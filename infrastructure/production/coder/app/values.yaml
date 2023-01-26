@@ -9,7 +9,7 @@ coder:
     # - name: CODER_OIDC_CLIENT_SECRET
     #   value: jCeEx0gDOvwQi6asmcIHJMt_gUSiH80G2VvC_6kSb3U6I_4xdmnOZ53-xRr8MW-8
     - name: CODER_OIDC_ISSUER_URL
-      value: https://auth.raelix.com/auth/realms/master
+      value: https://auth.raelix.com/realms/master
     - name: CODER_OIDC_EMAIL_DOMAIN
       value: hotmail.it
     - name: CODER_OIDC_CLIENT_ID
