@@ -11,7 +11,7 @@ coder:
     - name: CODER_OIDC_ISSUER_URL
       value: https://auth.raelix.com/realms/master
     - name: CODER_OIDC_EMAIL_DOMAIN
-      value: hotmail.it
+      value: hotmail.it,raelix.com
     - name: CODER_OIDC_CLIENT_ID
       value: argocd
     - name: CODER_OIDC_CLIENT_SECRET
