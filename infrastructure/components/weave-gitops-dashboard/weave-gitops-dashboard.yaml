@@ -34,6 +34,12 @@ spec:
         name: ww-gitops
   interval: 1h0m0s
   values:
+    oidcSecret:
+      create: true
+      clientID: grafana
+      clientSecret: grafana-client-secret
+      issuerURL: https://auth.raelix.com/realms/master
+      redirectURL: https://gitops.raelix.com/oauth2/callback
     adminUser:
       create: true
       passwordHash: $2a$10$5hJHu13H73aW03XAWBG.Gu6HDxp8aA5OiADbKY5QlAwAC5tlOWCFW
