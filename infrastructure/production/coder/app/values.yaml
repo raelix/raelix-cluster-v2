@@ -3,7 +3,7 @@ coder:
     - name: CODER_OIDC_ISSUER_URL
       value: https://dev-tpkvv6pf614lnn28.us.auth0.com/
     - name: CODER_OIDC_EMAIL_DOMAIN
-      value: raelix.com
+      value: hotmail.it
     - name: CODER_OIDC_CLIENT_ID
       value: yVniJA1L9WqBeV7kWaQtFAsyTodfjo5t
     - name: CODER_OIDC_CLIENT_SECRET
