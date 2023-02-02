@@ -3,7 +3,7 @@
 This repo is modified using coder on a Kubernetes cluster
 
 ### Requirements
-- sosps
+- sops
 - pre-commit
 - flux (cli)
 - kubectl
