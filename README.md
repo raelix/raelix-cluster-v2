@@ -26,11 +26,15 @@ Almost all components (WIP) are authenticated using KeyCloak (locally) and Auth0
 - weave-dashboard - useful flux dashboard
 - coder - creating and managing developer workspaces
 - paperless - documents management tool with OCR integration 
+- homer - portal to have a single place to access every service
 - home-assistant - home automation and appliance management
 - zigbee2mqtt (2 instances - 2 coordinators)
 - nodered (currently disabled) - automation flows
 - emqx-operator - broker mqtt
 - ring-mqtt - Software to interact with Ring devices through MQTT
+
+### Portal overview
+![Drag Racing](doc/img/portal.png)
 
 ## Installation guide
 
