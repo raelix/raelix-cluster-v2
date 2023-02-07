@@ -13,6 +13,9 @@ Almost all components (WIP) are authenticated using KeyCloak (locally) and Auth0
 - task
 - helm
 
+### Portal overview
+![Drag Racing](doc/img/portal.png)
+
 ### Main installed components
 - cert-manager - used to generate the certificate with let's encrypt using dns01 challenge
 - local-path-provisioner - dynamic local volume provisioner
@@ -32,9 +35,6 @@ Almost all components (WIP) are authenticated using KeyCloak (locally) and Auth0
 - nodered (currently disabled) - automation flows
 - emqx-operator - broker mqtt
 - ring-mqtt - Software to interact with Ring devices through MQTT
-
-### Portal overview
-![Drag Racing](doc/img/portal.png)
 
 ## Installation guide
 
