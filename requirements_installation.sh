@@ -2,19 +2,19 @@
 
 # common function to compare versions
 function ver()
-{ 
-    printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); 
+{
+    printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' ');
 }
 
 # install golang required for sops
 install_go()
 {
-    # Verify the Go installed version 
+    # Verify the Go installed version
     go_version=$(sudo go version 2>/dev/null | grep -oP '\d+\.\d+')
 
     # Install only when Go version is not the right version or not installed
     if [ -z "$go_version" ] || [ $(ver $go_version) -lt $(ver 1.8) ]; then
- 
+
         # Download and install the package
         sudo apt-get update
         sudo apt-get install golang-go
@@ -29,6 +29,12 @@ install_go()
 install_sops()
 {
     go install go.mozilla.org/sops/v3/cmd/sops@latest
+}
+
+# install age
+install_age()
+{
+    sudo apt install age
 }
 
 # install flux
@@ -74,6 +80,9 @@ else
     "Problem during Go language installation"
     exit 1
 fi
+
+# age installation
+install_age
 
 # flux-cli installation
 install_flux
