@@ -9,6 +9,10 @@ service:
       http:
         port: 5678
 
+env:
+  N8N_PORT: 5678
+  N8N_USER_FOLDER: /home/node/.n8n
+
 ingress:
   main:
     enabled: true
@@ -27,7 +31,7 @@ persistence:
   config:
     enabled: true
     existingClaim: n8n-data
-    mountPath: /home/node
+    mountPath: /home/node/.n8n
 
 probes:
   liveness:
