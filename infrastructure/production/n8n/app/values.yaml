@@ -7,7 +7,7 @@ service:
     type: ClusterIP
     ports:
       http:
-        port: 5678
+        port: 443
 
 ingress:
   main:
@@ -24,8 +24,9 @@ ingress:
           - *host
 
 env:
-  N8N_PORT: 5678
+  N8N_PORT: 443
   N8N_USER_FOLDER: /config
+  N8N_PROTOCOL: https
   N8N_HOST: *host
   N8N_EDITOR_BASE_URL: https://n8n.raelix.com
 
