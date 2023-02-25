@@ -1,0 +1,17 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: n8n-restore
+  namespace: home-automation
+spec:
+  trigger:
+    schedule: "* * * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/n8n"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct
+    accessModes: [ReadWriteOnce]
+    capacity: 1Gi
+    destinationPVC: n8n-data
+    storageClassName: local-path

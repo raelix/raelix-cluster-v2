@@ -17,6 +17,7 @@ resources:
   - ./paperless/ks.yaml
   - ./home-automation/ks.yaml
   - ./home-assistant/ks.yaml
+  - ./n8n/ks.yaml
   - ./emqx-operator/ks.yaml
   - ./ring-mqtt/ks.yaml
   - ./zigbee2mqtt-sensors/ks.yaml
