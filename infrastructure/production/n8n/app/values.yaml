@@ -27,7 +27,7 @@ persistence:
   config:
     enabled: true
     existingClaim: n8n-data
-    mountPath: /home/node/.n8n
+    mountPath: /home/node
 
 probes:
   liveness:
