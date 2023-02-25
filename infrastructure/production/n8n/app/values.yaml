@@ -1,0 +1,44 @@
+image:
+  repository: n8nio/n8n:0.217.1
+
+service:
+  main:
+    type: ClusterIP
+    ports:
+      http:
+        port: 5678
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      external-dns.home.arpa/enabled: "true"
+    hosts:
+      - host: &host "n8n.raelix.com"
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - *host
+
+persistence:
+  config:
+    enabled: true
+    existingClaim: n8n-data
+    mountPath: /home/node/.n8n
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+resources:
+  requests:
+    cpu: 126m
+    memory: 411M
+  limits:
+    memory: 4417M
