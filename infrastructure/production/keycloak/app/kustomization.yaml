@@ -4,6 +4,7 @@ namespace: keycloak
 resources:
   - ./keycloak-auth.yaml
   - ./keycloak-postgresql-auth.yaml
+  - ./cli-config.yaml
   - ../../../components/keycloak
 
 configMapGenerator:
