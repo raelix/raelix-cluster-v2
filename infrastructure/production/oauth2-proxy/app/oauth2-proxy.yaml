@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: oauth2-proxy
+    namespace: oauth2-proxy
+type: Opaque
+data:
+    cookie-secret: ENC[AES256_GCM,data:E2xyOl8qcHBPRzWjaobCDIyXpJmRZHbXu108inADkY4wuAEoKGhbjxQrAil+N2rC0RcEZcnsvf4=,iv:eJzI6isBkvAvlab2G8rvKrYmGC/YuUGSeuNsrdUB0mM=,tag:wLPzugYymuSHMYx+ARY86A==,type:str]
+    client-secret: ENC[AES256_GCM,data:WbqlwYT4RcYFEpLsa89WmgSy0oGMSxxonff7V+JK5+Oq8PZ6izkYVw==,iv:ObZTHHDZXnPGwhZ1mTrzMNsKv6rKJp4v7vJx7/nipHM=,tag:uMKYUSKZPA75Jy1zHwSSTQ==,type:str]
+    client-id: ENC[AES256_GCM,data:0mMi21TEkwTqRmE4,iv:q4iLZtJbPvRkWu/aqd1tEp24HtkhP3Y40eteV96df8g=,tag:NuSkazse5xochy20NNaWTw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBnQVFKVXl4T0ZLYmVVZmNQ
+            MCtXSWc5eHFpQ1h4WWJwWWhIZmpZMmxNem44CnRqcnloRUlIV1lCUTZjczh6TFI3
+            Yit4ektBZnJaWDVEb21TMzdncSttSHMKLS0tIEhxN0pNZUIrdU9ERzJZd0lxcmxo
+            SXh3V01jaTJkNUhzVEUzT1VVSTlFWVkK2qxbG755+OzMTi+zJSf7kev2Ujxo/s5G
+            OGTnot2ZR6RQk8gKvLKHBoLYAs2mxiCUSZU2aM4D8/dlRnZ7xMU+aw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-02-28T19:39:26Z"
+    mac: ENC[AES256_GCM,data:bm7Kaou3GuDQWE/NnIqRcisK7AJWdug5CF+H52RW7GVmSXH2kaUTXmzs2PtVshaUSkdYaXcYHFKIjM2RjIeOOFentKsmXRHfuMc4VCZRE18C12CoqzomArK/jHnLjI4NZVMBrNfjWFh1JGuccPk2XSQEJggksUY1wN5J+IFKplo=,iv:Zgy6X8MISDcev7+Ibgxs/LZTuEgusEz1ds8U8+mUql4=,tag:IECg/lGNqWOhxAowvXS/PA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
