@@ -173,16 +173,16 @@ provisioning:
       region: minipc
       # Only when mode is 'distributed'
       # ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
-      versioning: false
+      versioning: true
       # Versioning is automatically enabled if withLock is true
       # ref: https://docs.min.io/docs/minio-bucket-versioning-guide.html
       withLock: true
       # Only when mode is 'distributed'
       # ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
       lifecycle:
-        - id: TestPrefix7dRetention
+        - id: Prefix7dRetention
           prefix: test-prefix
-          disabled: false
+          disabled: true
           expiry:
             days: 3
             # Days !OR! date
