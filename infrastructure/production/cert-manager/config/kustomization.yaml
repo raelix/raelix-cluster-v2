@@ -5,3 +5,4 @@ resources:
   - ./cluster-issuer.yaml
   - ./wildcard-cert.yaml
   - ./patch-nginx-ingress-controller.yaml
+  - ./nginx-cm.yaml
