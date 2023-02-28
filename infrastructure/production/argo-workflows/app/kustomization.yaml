@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: argo-workflows
 resources:
   - ../../../components/argo-workflows
+  - ./artifact-repositories.yaml
 
 configMapGenerator:
   - name: argo-workflows-values
