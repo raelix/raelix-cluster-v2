@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ./weave-gitops-dashboard.yaml
   - ./oidc-weave-gitops.yaml
+  - ./gitops-user-role.yaml
