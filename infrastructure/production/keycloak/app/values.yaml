@@ -87,7 +87,7 @@ auth:
 #         mountPath: /providers
 
 keycloakConfigCli:
-  enabled: false
+  enabled: true
   # issue https://github.com/bitnami/charts/issues/14279
   command:
   - java
