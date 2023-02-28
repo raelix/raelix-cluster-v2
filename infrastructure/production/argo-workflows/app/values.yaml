@@ -99,7 +99,9 @@ server:
     # -- Enable an ingress resource
     enabled: true
     # -- Additional ingress annotations
-    annotations: {}
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
