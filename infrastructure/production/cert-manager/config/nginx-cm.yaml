@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  allow-snippet-annotations: "false"
+  proxy-buffer-size: 16k
+kind: ConfigMap
+metadata:
+  name: rke2-ingress-nginx-controller
+  namespace: kube-system
