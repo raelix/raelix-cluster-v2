@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+    clientID: ENC[AES256_GCM,data:pqPzSC3mhd4=,iv:ls7UTtkFl7YtV/661gfLrUbSWWLXW8P88I4UYw66U2Q=,tag:JlG/jX5H3dRccGVpQqZxxw==,type:str]
+    clientSecret: ENC[AES256_GCM,data:uP0NLD66Hik5FWKQxTa9alI+MpfxufVzh8fn6JnTkCC7e+D+pLol2xYcqm3FnQte4Ha7K9pqW4yCwfIC,iv:eMOT1a/phfX/Xb4mLqr2R8NNX+O0Ow5+jS4mWwwlcTE=,tag:Um5bRBirZ2jmEcechx666Q==,type:str]
+    issuerURL: ENC[AES256_GCM,data:fLl388kQHg3XrwzuvHaHTXmIK+cXhDsvOE/aMD3ISDQP8x81qVQly66uxuomfFXjR8Fnrg==,iv:qUN+h0ilRMYMp4jZWEmFGoDfQBLy16ptxtu2YP78laA=,tag:4sZtlGRzYy4GU+9sa1A/nQ==,type:str]
+    redirectURL: ENC[AES256_GCM,data:natDTeSXHSjsjllqnDyfZaVU5DIbjnQXA97++6pWLukuCYoYXEVlZMAKH93D5Gwe7X3MFBJRL/w=,iv:6r/NtQain2zTkCBc+4/kw7uq6vaHq5sjUZtlkBmBPpc=,tag:KqB2D7SAvRtI6BtyFKYMAQ==,type:str]
+kind: Secret
+metadata:
+    name: oidc-auth
+    namespace: flux-system
+type: Opaque
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBlTE1UWkFSYkRBWmczKzdH
+            ZWo0RHdFaWQ2bkc4NEM5bVgzcStTQ0hFaG1RCmR2WkpmbDIxc1RvTXk4QlRoeXda
+            Vm1yZEp0L2t0R2pXOHZXZG10UVlOSkEKLS0tIDl0bnNxNWFyKzJGMmxqVlNWUWI4
+            UCtaNXZuLy9NRzI2VEl4QzRNN0RwVTgKedvHVA72X0ql7/38umETBQiFrAk4e4qy
+            OEoKuDXg26y8db3Tb9LRaRNBXOwcavqWR97E+X5ADuiUAqCeG2HuMg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-02-28T21:10:16Z"
+    mac: ENC[AES256_GCM,data:rXL9wd4eIQyM9CUCGzSKxiylRaUDXPGH8z8QZmtqopFBo2BIXQwnuw5KQnaI8tyq9358jf9KzdvH0AMkccPqo5mQixjR0XFEZN0SEPubluOOaUlYf29+VL6kn9jVhpH3lvWPwCUEOiSPT4HTZ0tr4+GsJA/KLAvhVqxUjFYIU88=,iv:z1C72LNlNLxXNM+6HfvVAxBpNiGuV2MmCJk3ua5f12g=,tag:y0G4PB66r0XI2gN8iC0QBw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
