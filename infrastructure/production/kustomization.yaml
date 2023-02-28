@@ -12,6 +12,7 @@ resources:
   - ./redis/ks.yaml
   - ./weave-gitops-dashboard/ks.yaml
   - ./hosted/ks.yaml
+  - ./minio/ks.yaml
   - ./argo-workflows/ks.yaml
   - ./portal/ks.yaml
   - ./coder/ks.yaml
