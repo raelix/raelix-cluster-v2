@@ -1,0 +1,382 @@
+deployment:
+  ## @param deployment.updateStrategy.type Deployment strategy type
+  ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
+  ## e.g:
+  ## updateStrategy:
+  ##  type: RollingUpdate
+  ##  rollingUpdate:
+  ##    maxSurge: 25%
+  ##    maxUnavailable: 25%
+  ##
+  updateStrategy:
+    type: Recreate
+## MinIO&reg; statefulset parameters
+## Only when mode is 'distributed'
+##
+statefulset:
+  ## @param statefulset.updateStrategy.type StatefulSet strategy type
+  ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
+  ## e.g:
+  ## updateStrategy:
+  ##  type: RollingUpdate
+  ##  rollingUpdate:
+  ##    maxSurge: 25%
+  ##    maxUnavailable: 25%
+  ##
+  updateStrategy:
+    type: RollingUpdate
+  ## @param statefulset.podManagementPolicy StatefulSet controller supports relax its ordering guarantees while preserving its uniqueness and identity guarantees. There are two valid pod management policies: OrderedReady and Parallel
+  ## ref: https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#pod-management-policy
+  ##
+  podManagementPolicy: Parallel
+  ## @param statefulset.replicaCount Number of pods per zone (only for MinIO&reg; distributed mode). Should be even and `>= 4`
+  ##
+  replicaCount: 2
+  ## @param statefulset.zones Number of zones (only for MinIO&reg; distributed mode)
+  ##
+  zones: 1
+  ## @param statefulset.drivesPerNode Number of drives attached to every node (only for MinIO&reg; distributed mode)
+  ##
+  drivesPerNode: 1
+
+provisioning:
+  ## @param provisioning.enabled Enable MinIO&reg; provisioning Job
+  ##
+  enabled: false
+  ## @param provisioning.schedulerName Name of the k8s scheduler (other than default) for MinIO&reg; provisioning
+  ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
+  ##
+  schedulerName: ""
+  ## @param provisioning.podAnnotations Provisioning Pod annotations.
+  ##
+  podAnnotations: {}
+  ## @param provisioning.command Default provisioning container command (useful when using custom images). Use array form
+  ##
+  command: []
+  ## @param provisioning.args Default provisioning container args (useful when using custom images). Use array form
+  ##
+  args: []
+  ## @param provisioning.extraCommands Optionally specify extra list of additional commands for MinIO&reg; provisioning pod
+  ##
+  extraCommands: []
+  ## @param provisioning.extraVolumes Optionally specify extra list of additional volumes for MinIO&reg; provisioning pod
+  ##
+  extraVolumes: []
+  ## @param provisioning.extraVolumeMounts Optionally specify extra list of additional volumeMounts for MinIO&reg; provisioning container
+  ##
+  extraVolumeMounts: []
+  ## We usually recommend not to specify default resources and to leave this as a conscious
+  ## choice for the user. This also increases chances charts run on environments with little
+  ## resources, such as Minikube. If you do want to specify resources, uncomment the following
+  ## lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  ## @param provisioning.resources.limits The resources limits for the container
+  ## @param provisioning.resources.requests The requested resources for the container
+  ##
+  resources:
+    ## Example:
+    ## limits:
+    ##    cpu: 100m
+    ##    memory: 64Mi
+    limits: {}
+    ## Examples:
+    ## requests:
+    ##    cpu: 200m
+    ##    memory: 128Mi
+    requests: {}
+  ## @param provisioning.policies MinIO&reg; policies provisioning
+  ## https://docs.min.io/docs/minio-admin-complete-guide.html#policy
+  ## e.g.
+  ## policies:
+  ##   - name: custom-bucket-specific-policy
+  ##     statements:
+  ##       - resources:
+  ##           - "arn:aws:s3:::my-bucket"
+  ##         actions:
+  ##           - "s3:GetBucketLocation"
+  ##           - "s3:ListBucket"
+  ##           - "s3:ListBucketMultipartUploads"
+  ##       - resources:
+  ##           - "arn:aws:s3:::my-bucket/*"
+  ##         # Allowed values: "Allow" | "Deny"
+  ##         # Defaults to "Deny" if not specified
+  ##         effect: "Allow"
+  ##         actions:
+  ##           - "s3:AbortMultipartUpload"
+  ##           - "s3:DeleteObject"
+  ##           - "s3:GetObject"
+  ##           - "s3:ListMultipartUploadParts"
+  ##           - "s3:PutObject"
+  policies: []
+  ## @param provisioning.users MinIO&reg; users provisioning. Can be used in addition to provisioning.usersExistingSecrets.
+  ## https://docs.min.io/docs/minio-admin-complete-guide.html#user
+  ## e.g.
+  ## users:
+  ##   - username: test-username
+  ##     password: test-password
+  ##     disabled: false
+  ##     policies:
+  ##       - readwrite
+  ##       - consoleAdmin
+  ##       - diagnostics
+  ##     # When set to true, it will replace all policies with the specified.
+  ##     # When false, the policies will be added to the existing.
+  ##     setPolicies: false
+  users: []
+  ## @param provisioning.usersExistingSecrets Array if existing secrets containing MinIO&reg; users to be provisioned. Can be used in addition to provisioning.users.
+  ## https://docs.min.io/docs/minio-admin-complete-guide.html#user
+  ##
+  ## Instead of configuring users inside values.yaml, referring to existing Kubernetes secrets containing user
+  ## configurations is possible.
+  ## e.g.
+  ## usersExistingSecrets:
+  ##   - centralized-minio-users
+  ##
+  ## All provided Kubernetes secrets require a specific data structure. The same data from the provisioning.users example above
+  ##  can be defined via secrets with the following data structure. The secret keys have no meaning to the provisioning job except that
+  ## they are used as filenames.
+  ##   ## apiVersion: v1
+  ##   ## kind: Secret
+  ##   ## metadata:
+  ##   ##   name: centralized-minio-users
+  ##   ## type: Opaque
+  ##   ## stringData:
+  ##   ##   username1: |
+  ##   ##     username=test-username
+  ##   ##     password=test-password
+  ##   ##     disabled=false
+  ##   ##     policies=readwrite,consoleAdmin,diagnostics
+  ##   ##     setPolicies=false
+  usersExistingSecrets: []
+  ## @param provisioning.groups MinIO&reg; groups provisioning
+  ## https://docs.min.io/docs/minio-admin-complete-guide.html#group
+  ## e.g.
+  ## groups
+  ##   - name: test-group
+  ##     disabled: false
+  ##     members:
+  ##       - test-username
+  ##     policies:
+  ##       - readwrite
+  ##     # When set to true, it will replace all policies with the specified.
+  ##     # When false, the policies will be added to the existing.
+  ##     setPolicies: false
+  groups: []
+  ## @param provisioning.buckets MinIO&reg; buckets, versioning, lifecycle, quota and tags provisioning
+  ## Buckets https://docs.min.io/docs/minio-client-complete-guide.html#mb
+  ## Lifecycle https://docs.min.io/docs/minio-client-complete-guide.html#ilm
+  ## Quotas https://docs.min.io/docs/minio-admin-complete-guide.html#bucket
+  ## Tags https://docs.min.io/docs/minio-client-complete-guide.html#tag
+  ## Versioning https://docs.min.io/docs/minio-client-complete-guide.html#version
+  ## e.g.
+  buckets:
+    - name: argo-bucket
+      region: us-east-1
+      # Only when mode is 'distributed'
+      # ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
+      versioning: false
+      # Versioning is automatically enabled if withLock is true
+      # ref: https://docs.min.io/docs/minio-bucket-versioning-guide.html
+      withLock: true
+      # Only when mode is 'distributed'
+      # ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
+      lifecycle:
+        - id: TestPrefix7dRetention
+          prefix: test-prefix
+          disabled: false
+          expiry:
+            days: 3
+            # Days !OR! date
+            # date: "2021-11-11T00:00:00Z"
+            nonconcurrentDays: 3
+      # Only when mode is 'distributed'
+      # ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
+      quota:
+        # hard or clear(+ omit size)
+        type: hard
+        size: 10GiB
+      # tags:
+        # key1: value1
+  # buckets: []
+  ## @param provisioning.config MinIO&reg; config provisioning
+  ## https://docs.min.io/docs/minio-server-configuration-guide.html
+  ## e.g.
+  ## config:
+  ##   - name: region
+  ##     options:
+  ##       name: us-east-1
+  config: []
+
+
+
+
+
+mode: standalone
+## MinIO&reg; authentication parameters
+##
+auth:
+  ## @param auth.rootUser MinIO&reg; root username
+  ##
+  rootUser: admin
+  ## @param auth.rootPassword Password for MinIO&reg; root user
+  ##
+  rootPassword: ""
+  ## @param auth.existingSecret Use existing secret for credentials details (`auth.rootUser` and `auth.rootPassword` will be ignored and picked up from this secret). The secret has to contain the keys `root-user` and `root-password`)
+  ##
+  existingSecret: "minio-creds"
+  ## @param auth.forcePassword Force users to specify required passwords
+  ##
+  forcePassword: false
+  ## @param auth.useCredentialsFiles Mount credentials as a files instead of using an environment variable
+  ##
+  useCredentialsFiles: false
+  ## @param auth.forceNewKeys Force root credentials (user and password) to be reconfigured every time they change in the secrets
+  ##
+  forceNewKeys: false
+## @param defaultBuckets Comma, semi-colon or space separated list of buckets to create at initialization (only in standalone mode)
+## e.g:
+## defaultBuckets: "my-bucket, my-second-bucket"
+##
+defaultBuckets: "argo-worflow-bucket"
+## @param disableWebUI Disable MinIO&reg; Web UI
+## ref: https://github.com/minio/minio/tree/master/docs/config/#browser
+##
+disableWebUI: false
+
+
+
+
+ingress:
+  ## @param ingress.enabled Enable ingress controller resource for MinIO Console
+  ##
+  enabled: true
+  ## @param ingress.apiVersion Force Ingress API version (automatically detected if not set)
+  ##
+  apiVersion: ""
+  ## @param ingress.ingressClassName IngressClass that will be be used to implement the Ingress (Kubernetes 1.18+)
+  ## This is supported in Kubernetes 1.18+ and required if you have more than one IngressClass marked as the default for your cluster.
+  ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
+  ##
+  ingressClassName: "nginx"
+  ## @param ingress.hostname Default host for the ingress resource
+  ##
+  hostname: minio.raelix.com
+  ## @param ingress.path The Path to MinIO&reg;. You may need to set this to '/*' in order to use this with ALB ingress controllers.
+  ##
+  path: /
+  ## @param ingress.pathType Ingress path type
+  ##
+  pathType: ImplementationSpecific
+  ## @param ingress.servicePort Service port to be used
+  ## Default is http. Alternative is https.
+  ##
+  servicePort: minio-console
+  ## @param ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
+  ## For a full list of possible ingress annotations, please see
+  ## ref: https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/nginx-configuration/annotations.md
+  ## Use this parameter to set the required annotations for cert-manager, see
+  ## ref: https://cert-manager.io/docs/usage/ingress/#supported-annotations
+  ##
+  ## e.g:
+  ## annotations:
+  ##   kubernetes.io/ingress.class: nginx
+  ##   cert-manager.io/cluster-issuer: cluster-issuer-name
+  ##
+  annotations: {}
+  ## @param ingress.tls Enable TLS configuration for the hostname defined at `ingress.hostname` parameter
+  ## TLS certificates will be retrieved from a TLS secret with name: `{{- printf "%s-tls" .Values.ingress.hostname }}`
+  ## You can:
+  ##   - Use the `ingress.secrets` parameter to create this TLS secret
+  ##   - Rely on cert-manager to create it by setting the corresponding annotations
+  ##   - Rely on Helm to create self-signed certificates by setting `ingress.selfSigned=true`
+  ##
+  tls: false
+  ## @param ingress.selfSigned Create a TLS secret for this ingress record using self-signed certificates generated by Helm
+  ##
+  selfSigned: false
+  ## @param ingress.extraHosts The list of additional hostnames to be covered with this ingress record.
+  ## Most likely the hostname above will be enough, but in the event more hosts are needed, this is an array
+  ## e.g:
+  ## extraHosts:
+  ##   - name: minio.local
+  ##     path: /
+  ##
+  extraHosts: []
+  ## @param ingress.extraPaths Any additional paths that may need to be added to the ingress under the main host
+  ## For example: The ALB ingress controller requires a special rule for handling SSL redirection.
+  ## extraPaths:
+  ## - path: /*
+  ##   backend:
+  ##     serviceName: ssl-redirect
+  ##     servicePort: use-annotation
+  ##
+  extraPaths: []
+  ## @param ingress.extraTls The tls configuration for additional hostnames to be covered with this ingress record.
+  ## see: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
+  ## e.g:
+  extraTls:
+  - hosts:
+      - minio.raelix.com
+  ##   secretName: minio.local-tls
+  ##
+  # extraTls: []
+  ## @param ingress.secrets If you're providing your own certificates, please use this to add the certificates as secrets
+  ## key and certificate are expected in PEM format
+  ## name should line up with a secretName set further up
+  ##
+  ## If it is not set and you're using cert-manager, this is unneeded, as it will create a secret for you with valid certificates
+  ## If it is not set and you're NOT using cert-manager either, self-signed certificates will be created valid for 365 days
+  ## It is also possible to create and manage the certificates outside of this helm chart
+  ## Please see README.md for more information
+  ##
+  ## Example
+  ## secrets:
+  ##   - name: minio.local-tls
+  ##     key: ""
+  ##     certificate: ""
+  ##
+  secrets: []
+  ## @param ingress.extraRules Additional rules to be covered with this ingress record
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-rules
+  ## e.g:
+  ## extraRules:
+  ## - host: example.local
+  ##     http:
+  ##       path: /
+  ##       backend:
+  ##         service:
+  ##           name: example-svc
+  ##           port:
+  ##             name: http
+  ##
+  extraRules: []
+
+
+
+persistence:
+  ## @param persistence.enabled Enable MinIO&reg; data persistence using PVC. If false, use emptyDir
+  ##
+  enabled: true
+  ## @param persistence.storageClass PVC Storage Class for MinIO&reg; data volume
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  storageClass: ""
+  ## @param persistence.mountPath Data volume mount path
+  ##
+  mountPath: /data
+  ## @param persistence.accessModes PVC Access Modes for MinIO&reg; data volume
+  ##
+  accessModes:
+    - ReadWriteOnce
+  ## @param persistence.size PVC Storage Request for MinIO&reg; data volume
+  ##
+  size: 8Gi
+  ## @param persistence.annotations Annotations for the PVC
+  ##
+  annotations: {}
+  ## @param persistence.existingClaim Name of an existing PVC to use (only in `standalone` mode)
+  ##
+  existingClaim: ""

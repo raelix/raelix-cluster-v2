@@ -1,0 +1,28 @@
+apiVersion: v1
+data:
+    root-password: ENC[AES256_GCM,data:lGaoiKZmJ+U=,iv:KXXsFx2HCMYDfLrYrBsNj8q0q2vFFqjhxGekn8xKk/w=,tag:zkkwuePg1ix0MAIK+bkYYw==,type:str]
+    root-user: ENC[AES256_GCM,data:NscgR3qoE2w=,iv:fkgB45c6xlmQKrUA15o/oFZcOjX7QakjOK6qHp5FwEs=,tag:GEmxi8gzuLV1fgGOk30T1A==,type:str]
+kind: Secret
+metadata:
+    name: minio-creds
+    namespace: hosted
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1elje5gj3cyqhn44m66xlngczm8dklwmry9803ne69945e256xgequ9xtt6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5bHUwZUxEamFIWGRmVENr
+            MHB3d2pVZjMzcUNrUlhaYVM5b3BEUHJ3WGlRCk9CeUdLdVJVcU1QRWI4TGNIK2Vw
+            QmV5ajRiMmtlOUlrVDVxL2NESWRpZ1EKLS0tIGJUcnBpYWFwMUlOd1Z2ZVJ3T1Y5
+            bSt0UUpWL0FSakhxVUxDVFJWbFhtWmsK9gmUHB6HIGetNhcQ5c7joTnplzYopf0Z
+            ETb87VllwgHlivuO1doSMh1wQ/LE/mAA1A7OtpDKa7emC1pKTpLkYg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-02-28T06:05:11Z"
+    mac: ENC[AES256_GCM,data:HhiNzEni9cgPSWBQbqlpOdqBtRlMRpzVFjH2tpIYITdOiO4vicLhA4Ur7oRY3Hd5b9Np/+MZ8OLqqZtve1+umaSQsx/xwtSYoPjwhG+i+9RFqCpDAM1FhY/eLRSf/5BfxAr5o1+r0h5RUl1LwTOV78md+FN/FE0UdnZqD/7aWA0=,iv:llKI8P3aYPelmn6M0evV62oiHW4SGd9rXQr1TE2pAq4=,tag:ZPsmft0EIhv5QpwYzKWXfw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
