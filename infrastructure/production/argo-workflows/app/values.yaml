@@ -1,3 +1,19 @@
+workflow:
+  # -- Deprecated; use controller.workflowNamespaces instead.
+  namespace:
+  serviceAccount:
+    # -- Specifies whether a service account should be created
+    create: true
+    # -- Labels applied to created service account
+    labels: {}
+    # -- Annotations applied to created service account
+    annotations: {}
+    # -- Service account which is used to run workflows
+    name: "argo-workflow"
+  rbac:
+    # -- Adds Role and RoleBinding for the above specified service account to be able to run workflows.
+    # A Role and Rolebinding pair is also created for each namespace in controller.workflowNamespaces (see below)
+    create: true
 
 server:
   # -- Deploy the Argo Server
