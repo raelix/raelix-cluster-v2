@@ -6,8 +6,8 @@ resources:
   - ./external-snapshotter/ks.yaml
   - ./external-dns/ks.yaml
   - ./volsync/ks.yaml
-  - ./keycloak/ks.yaml 
-  - ./oauth2-proxy/ks.yaml
+  - ./keycloak/ks.yaml
+  # - ./oauth2-proxy/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./redis/ks.yaml
   - ./weave-gitops-dashboard/ks.yaml
