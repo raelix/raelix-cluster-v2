@@ -3,7 +3,7 @@ config:
   configFile: |-
     provider = "oidc"
     provider_display_name = "Raelix HomeLab Login"
-    oidc_issuer_url = "https://auth.raelix.com/auth/realms/master"
+    oidc_issuer_url = "https://auth.raelix.com/realms/master"
     email_domains = [ "*" ]
     scope = "openid profile email"
     whitelist_domains = [".raelix.com"]
