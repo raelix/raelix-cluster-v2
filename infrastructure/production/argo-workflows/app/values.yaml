@@ -16,6 +16,21 @@ workflow:
     create: true
 
 server:
+
+  sso:
+    clientId:
+      key: client-id
+      name: argo-server-sso
+    clientSecret:
+      key: client-secret
+      name: argo-server-sso
+    issuer: https://auth.raelix.com/realms/master
+    rbac:
+      enabled: true
+    redirectUrl: https://argo.raelix.com/oauth2/callback
+    scopes:
+    - groups
+
   # -- Deploy the Argo Server
   enabled: true
   # -- Value for base href in index.html. Used if the server is running behind reverse proxy under subpath different from /.
@@ -78,7 +93,8 @@ server:
   #   - gateway authentication through some other service such as KeyCloak
   # uncomment the lines below and comment out the default empty list `extraArgs: []` above:
   extraArgs:
-  - --auth-mode=server
+  - --auth-mode=sso
+
 
   logging:
     # -- Set the logging level (one of: `debug`, `info`, `warn`, `error`)

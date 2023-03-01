@@ -206,10 +206,6 @@ provisioning:
   ##       name: us-east-1
   config: []
 
-
-
-
-
 mode: standalone
 ## MinIO&reg; authentication parameters
 ##
@@ -241,9 +237,6 @@ defaultBuckets: "argo-worflow-bucket"
 ## ref: https://github.com/minio/minio/tree/master/docs/config/#browser
 ##
 disableWebUI: false
-
-
-
 
 ingress:
   ## @param ingress.enabled Enable ingress controller resource for MinIO Console
@@ -350,8 +343,6 @@ ingress:
   ##
   extraRules: []
 
-
-
 persistence:
   ## @param persistence.enabled Enable MinIO&reg; data persistence using PVC. If false, use emptyDir
   ##
@@ -380,3 +371,4 @@ persistence:
   ## @param persistence.existingClaim Name of an existing PVC to use (only in `standalone` mode)
   ##
   existingClaim: ""
+extraEnvVarsCM: minio-secrets

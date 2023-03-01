@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: argo-workflows
 resources:
   - ./minio-creds.yaml
+  - ./minio-secrets.yaml
   - ../../../components/minio
 
 configMapGenerator:
