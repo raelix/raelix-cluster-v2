@@ -10,6 +10,16 @@ configMapGenerator:
   - name: kube-prometheus-stack-values
     files:
       - values.yaml=values.yaml
+  - name: opensea-dashboard
+    namespace: monitoring
+    options:
+      labels:
+        grafana_dashboard: "1"
+      annotations:
+        k8s-sidecar-target-directory: "/tmp/dashboards/opensea-dashboard"
+    files:
+      - dashboards/opensea-dashboard.json
+
 
 configurations:
   - kustomizeconfig.yaml

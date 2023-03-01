@@ -49,10 +49,10 @@ grafana:
       - grafana.raelix.com
     path: /
 
-  # dashboardProviders:
-  #   dashboardproviders.yaml:
-  #     apiVersion: 1
-  #     providers:
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
   #     - name: 'homeassistant'
   #       orgId: 1
   #       folder: 'Home Assistant Dashboard'
@@ -61,14 +61,14 @@ grafana:
   #       editable: true
   #       options:
   #         path: /tmp/dashboards/homeassistant
-  #     - name: 'opensea-dashboard'
-  #       orgId: 1
-  #       folder: 'Opensea Dashboard'
-  #       type: file
-  #       disableDeletion: true
-  #       editable: true
-  #       options:
-  #         path: /tmp/dashboards/opensea-dashboard
+      - name: 'opensea-dashboard'
+        orgId: 1
+        folder: 'Opensea Dashboard'
+        type: file
+        disableDeletion: true
+        editable: true
+        options:
+          path: /tmp/dashboards/opensea-dashboard
   #     - name: 'logging-dashboard'
   #       orgId: 1
   #       folder: 'Home Assistant Dashboard'
@@ -85,7 +85,7 @@ grafana:
       - name: Prometheus
         type: prometheus
         uid: prometheus
-        url: http://prometheus-kube-prometheus-prometheus:9090
+        url: http://kube-prometheus-stack-prometheus.observability.svc.cluster.local:9090
         access: proxy
         isDefault: true
       # - name: Loki
@@ -94,13 +94,13 @@ grafana:
       #   url: http://loki.logging.svc:3100
       #   access: proxy
 
-  # sidecar:
-  #   dashboards:
-  #     enabled: true
-  #     label: grafana_dashboard
-  #     labelValue: "1"
-  #     defaultFolderName: general
-  #     folder: /tmp/dashboards
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      defaultFolderName: general
+      folder: /tmp/dashboards
 
   service:
     portName: http-web
