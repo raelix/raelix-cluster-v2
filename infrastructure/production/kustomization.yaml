@@ -11,6 +11,7 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./redis/ks.yaml
   - ./weave-gitops-dashboard/ks.yaml
+  - ./kube-prometheus-stack/ks.yaml
   - ./hosted/ks.yaml
   - ./minio/ks.yaml
   - ./argo-workflows/ks.yaml

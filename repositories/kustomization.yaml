@@ -5,6 +5,7 @@ resources:
   - ./bitnami.yaml
   - ./external-snapshotter.yaml
   - ./external-dns.yaml
+  - ./prometheus-community.yaml
   - ./backube.yaml
   - ./local-path-provisioner.yaml
   - ./bjw-s.yaml
