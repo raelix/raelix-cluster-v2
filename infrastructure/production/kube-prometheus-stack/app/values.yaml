@@ -14,7 +14,7 @@ grafana:
   extraConfigmapMounts:
   - name: auth-generic-oauth-secret-mount
     configMap: auth-generic-oauth-secret
-    # defaultMode: 0440
+    subPath: ""
     mountPath: /etc/secrets/auth_generic_oauth
     readOnly: true
 
