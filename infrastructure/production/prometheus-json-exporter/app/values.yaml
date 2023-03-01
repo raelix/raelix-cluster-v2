@@ -53,7 +53,8 @@ serviceMonitor:
   defaults:
     additionalMetricsRelabels: {}
     interval: 10s
-    labels: {}
+    labels:
+      release: kube-prometheus-stack
     scrapeTimeout: 30s
 
   targets:
