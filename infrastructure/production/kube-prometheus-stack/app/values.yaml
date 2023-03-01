@@ -11,10 +11,10 @@ grafana:
     finalizers:
       - kubernetes.io/pvc-protection
 
-  extraSecretMounts:
+  extraConfigmapMounts:
   - name: auth-generic-oauth-secret-mount
-    secretName: auth-generic-oauth-secret
-    defaultMode: 0440
+    configMap: auth-generic-oauth-secret
+    # defaultMode: 0440
     mountPath: /etc/secrets/auth_generic_oauth
     readOnly: true
 
