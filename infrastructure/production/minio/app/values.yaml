@@ -106,21 +106,26 @@ provisioning:
   ##           - "s3:GetObject"
   ##           - "s3:ListMultipartUploadParts"
   ##           - "s3:PutObject"
-  policies: []
-  ## @param provisioning.users MinIO&reg; users provisioning. Can be used in addition to provisioning.usersExistingSecrets.
-  ## https://docs.min.io/docs/minio-admin-complete-guide.html#user
-  ## e.g.
-  ## users:
-  ##   - username: test-username
-  ##     password: test-password
-  ##     disabled: false
-  ##     policies:
-  ##       - readwrite
-  ##       - consoleAdmin
-  ##       - diagnostics
-  ##     # When set to true, it will replace all policies with the specified.
-  ##     # When false, the policies will be added to the existing.
-  ##     setPolicies: false
+  policies:
+  - name: admin
+    statements:
+    - actions:
+      - "*"
+      resources:
+      - "arn:aws:s3:::*"
+      effect: Allow
+  - name: viewer
+    statements:
+    - actions:
+      - "s3:GetObject"
+      - "s3:GetBucketLocation"
+      - "s3:GetObjectVersion"
+      - "s3:ListBucket"
+      - "s3:ListAllMyBuckets"
+      - "s3:GetObjectRetention"
+      resources:
+      - "arn:aws:s3:::*"
+      effect: Allow
   users: []
   ## @param provisioning.usersExistingSecrets Array if existing secrets containing MinIO&reg; users to be provisioned. Can be used in addition to provisioning.users.
   ## https://docs.min.io/docs/minio-admin-complete-guide.html#user
