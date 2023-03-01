@@ -107,7 +107,6 @@ grafana:
     type: ClusterIP
 
 prometheus:
-
   ingress:
     enabled: true
     ingressClassName: nginx
@@ -128,6 +127,12 @@ prometheus:
     path: /
 
   prometheusSpec:
+
+    additionalScrapeConfigsSecret:
+      enabled: true
+      name: scrape-config
+      key: scrape-config
+
     storageSpec:
      volumeClaimTemplate:
        spec:

@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: observability
 resources:
   - ./grafana-sso.yaml
+  - ./scrape-config.yaml
   - ../../../components/kube-prometheus-stack
 
 configMapGenerator:
