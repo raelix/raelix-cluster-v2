@@ -23,16 +23,16 @@ grafana:
       root_url: https://grafana.raelix.com
       # serve_from_sub_path: "true"
     auth.basic:
-      enabled: true
+      enabled: false
     auth:
-      disable_login_form: false
+      disable_login_form: true
     auth.generic_oauth:
       enabled: true
       client_id: $__file{/etc/secrets/auth_generic_oauth/client_id}
       client_secret: $__file{/etc/secrets/auth_generic_oauth/client_secret}
       name: Keycloak
       allow_sign_up: true
-      scopes: profile,email,groups
+      scopes: openid,profile,email,groups
       auth_url: https://auth.raelix.com/realms/master/protocol/openid-connect/auth
       token_url: https://auth.raelix.com/realms/master/protocol/openid-connect/token
       api_url: https://auth.raelix.com/realms/master/protocol/openid-connect/userinfo
