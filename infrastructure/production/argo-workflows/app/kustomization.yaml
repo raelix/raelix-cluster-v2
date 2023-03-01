@@ -5,9 +5,11 @@ resources:
   - ./oidc-secret.yaml
   - ./argo-workflows-admin-sa.yaml
   - ./argo-workflows-admin-crb.yaml
+  - ./argo-workflows-admin-secret.yaml
   - ./user-default-login-sa.yaml
   - ./user-default-login-role.yaml
   - ./user-default-login-rb.yaml
+  - ./user-default-login-secret.yaml
   - ../../../components/argo-workflows
   - ./artifact-repositories.yaml
 
