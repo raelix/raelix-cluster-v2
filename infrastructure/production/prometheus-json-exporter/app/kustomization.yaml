@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: observability
+resources:
+  - ../../../components/prometheus-json-exporter
+
+configMapGenerator:
+  - name: prometheus-json-exporter-values
+    files:
+      - values.yaml=values.yaml
+
+configurations:
+  - kustomizeconfig.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: prometheus-json-exporter
+    patch: |-
+      - op: add
+        path: /spec/valuesFrom
+        value:
+        - kind: ConfigMap
+          name: prometheus-json-exporter-values
+          valuesKey: values.yaml
