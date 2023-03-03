@@ -29,7 +29,6 @@ spec:
   chart:
     spec:
       chart: weave-gitops
-      version: 4.0.14
       sourceRef:
         kind: HelmRepository
         name: ww-gitops
