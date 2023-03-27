@@ -4,7 +4,7 @@ metadata:
   name: emqx
   # namespace: message
 spec:
-  image: emqx/emqx:5.0.20
+  image: emqx/emqx:5.0.21
   coreTemplate:
     spec:
       envFrom:
