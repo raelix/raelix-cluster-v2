@@ -1,6 +1,6 @@
 image:
   repository: n8nio/n8n
-  tag: 0.221.2
+  tag: 0.225.1
 
 service:
   main:
