@@ -195,10 +195,11 @@ provisioning:
             nonconcurrentDays: 3
       # Only when mode is 'distributed'
       # ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
-      quota:
+# Disable the quota until https://github.com/bitnami/charts/issues/16111 is fixed
+#      quota:
         # hard or clear(+ omit size)
-        type: hard
-        size: 10GiB
+#        type: hard
+#        size: 10GiB
       # tags:
         # key1: value1
   # buckets: []
