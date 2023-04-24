@@ -1,0 +1,62 @@
+ingress:
+  # -- Enables the use of an Ingress Controller to front the Service and can provide HTTPS
+  enabled: true
+
+  # -- annotations to configure your Ingress. See your Ingress Controller's Docs for more info.
+  # annotations: {}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/auth-url: "https://oauth2-proxy.raelix.com/oauth2/auth"
+    nginx.ingress.kubernetes.io/auth-signin: "https://oauth2-proxy.raelix.com/oauth2/start"
+    nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email"
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    ingress.kubernetes.io/proxy-body-size: "1024m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
+
+  hosts:
+    - host: &host "frigate.raelix.com"
+      paths:
+        - '/'
+
+  tls:
+  - hosts:
+    - *host
+
+envFromSecrets:
+  - frigate-rstp-credentials
+
+config: |
+    mqtt:
+      enabled: True
+      host: emqx-listeners.message.svc.cluster.local:1883
+      user: '{FRIGATE_MQTT_USER}'
+      password: '{FRIGATE_MQTT_PASSWORD}'
+
+    go2rtc:
+      streams:
+        ingresso:
+          - "rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.197:554/stream1"
+          - "ffmpeg:ingresso#audio=opus"
+
+    cameras:
+      ingresso:
+        ffmpeg:
+          inputs:
+            - path: rtsp://127.0.0.1:8554/ingresso
+              roles:
+                - detect
+        detect:
+          width: 1280
+          height: 720
+          fps: 5
+    objects:
+      track:
+      - person
+      # - cup
+      # - mouse
+
+    detectors:
+      cpu1:
+        type: cpu
+      cpu2:
+        type: cpu
