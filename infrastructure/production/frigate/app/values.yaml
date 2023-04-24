@@ -48,6 +48,7 @@ config: |
             - path: rtsp://127.0.0.1:8554/ingresso
               roles:
                 - detect
+                - record
         detect:
           width: 1280
           height: 720
@@ -63,3 +64,9 @@ config: |
         type: cpu
       cpu2:
         type: cpu
+
+    record:
+      enabled: True
+      events:
+        retain:
+          default: 10
