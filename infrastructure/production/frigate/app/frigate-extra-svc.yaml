@@ -13,13 +13,21 @@ spec:
   internalTrafficPolicy: Cluster
   ports:
   - name: http
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  - name: rtmp
+    port: 1935
+    protocol: TCP
+    targetPort: 1935
+  - name: webrtcu
     port: 8554
     protocol: TCP
-    targetPort: http
-  - name: http
+    targetPort: 8554
+  - name: webrtcp
     port: 8555
     protocol: TCP
-    targetPort: http
+    targetPort: 8555
   selector:
     app.kubernetes.io/instance: frigate
     app.kubernetes.io/name: frigate
