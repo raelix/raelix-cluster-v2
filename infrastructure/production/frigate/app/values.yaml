@@ -1,3 +1,6 @@
+image:
+  repository: ghcr.io/blakeblackshear/frigate
+  tag: stable
 ingress:
   # -- Enables the use of an Ingress Controller to front the Service and can provide HTTPS
   enabled: true
