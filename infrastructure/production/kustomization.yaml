@@ -27,7 +27,7 @@ resources:
   - ./zigbee2mqtt-sensors/ks.yaml
   - ./zigbee2mqtt-switches/ks.yaml
   - ./frigate/ks.yaml
-  # - ./compreface/ks.yaml
+  - ./compreface/ks.yaml
   # - ./nodered/ks.yaml
 configMapGenerator:
 - name: cluster-vars
