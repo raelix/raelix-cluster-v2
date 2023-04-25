@@ -15,4 +15,4 @@ resources:
   - ./coder.yaml
   - ./argo.yaml
   - ./blakeblackshear.yaml
-  - ./compreface.yaml
+  # - ./compreface.yaml
