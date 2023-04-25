@@ -5,6 +5,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 24h
-  url: https://github.com/exadel-inc/compreface-kubernetes
+  url: https://github.com/raelix/compreface-kubernetes
   ref:
     branch: main
