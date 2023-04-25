@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: home-automation
+resources:
+  - ./pvc.yaml
+  - ../../../components/double-take
+
+configMapGenerator:
+  - name: double-take-values
+    files:
+      - values.yaml=values.yaml
+  # - name: double-take-configuration
+  #   files:
+  #     - ./configuration.yaml
+  #   options:
+  #     disableNameSuffixHash: true
+
+configurations:
+  - kustomizeconfig.yaml
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: double-take
+    patch: |-
+      - op: add
+        path: /spec/valuesFrom
+        value:
+        - kind: ConfigMap
+          name: double-take-values
+          valuesKey: values.yaml
