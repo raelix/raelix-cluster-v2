@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: compreface
+  namespace: flux-system
+spec:
+  interval: 24h
+  url: https://github.com/exadel-inc/compreface-kubernetes
+  ref:
+    branch: main
