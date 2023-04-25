@@ -60,8 +60,8 @@ config: |
       # - mouse
       filters:
         person:
-          min_score: 0.6
-          threshold: 0.8
+          min_score: 0.58
+          threshold: 0.7
 
     detectors:
       cpu1:
