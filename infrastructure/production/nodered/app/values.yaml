@@ -47,6 +47,6 @@ probes:
 resources:
   requests:
     cpu: 126m
-    # memory: 411M
+    memory: 10M
   limits:
     memory: 4417M
