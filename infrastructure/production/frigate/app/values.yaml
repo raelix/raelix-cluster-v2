@@ -44,12 +44,12 @@ config: |
     cameras:
       ingresso:
         zones:
-          porta:
-            coordinates: 104,720,257,28,576,263,528,720
+          # porta:
+          #   coordinates: 104,720,257,28,576,263,528,720
           entrata:
             coordinates: 1100,258,1150,720,603,720,620,289
-          corridoio:
-            coordinates: 1280,720,1280,302,1183,302,1180,720
+          # corridoio:
+          #   coordinates: 1280,720,1280,302,1183,302,1180,720
         ffmpeg:
           inputs:
             - path: rtsp://127.0.0.1:8554/ingresso
