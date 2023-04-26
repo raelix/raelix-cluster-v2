@@ -1,0 +1,14 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: nodered-backup
+  namespace: home-automation
+spec:
+  sourcePVC: nodered-data
+  trigger:
+    schedule: "0 18 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/nodered"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct

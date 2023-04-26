@@ -1,0 +1,14 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: double-take-backup
+  namespace: home-automation
+spec:
+  sourcePVC: double-take-data
+  trigger:
+    schedule: "0 18 * * *"
+  rclone:
+    rcloneConfigSection: "gdrive"
+    rcloneDestPath: "rclone/double-take"
+    rcloneConfig: "rclone-secret"
+    copyMethod: Direct

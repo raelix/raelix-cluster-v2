@@ -29,7 +29,7 @@ resources:
   - ./frigate/ks.yaml
   - ./compreface/ks.yaml
   - ./double-take/ks.yaml
-  # - ./nodered/ks.yaml
+  - ./nodered/ks.yaml
 configMapGenerator:
 - name: cluster-vars
   namespace: flux-system
