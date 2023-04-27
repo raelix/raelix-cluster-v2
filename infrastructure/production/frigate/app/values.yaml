@@ -50,6 +50,7 @@ config: |
           entrata:
             coordinates: 1100,258,1150,720,603,720,620,289
         objects:
+          track:
           - person
         filters:
           person:
@@ -75,6 +76,7 @@ config: |
           cucina:
             coordinates: 853,108,1087,129,1214,159,1280,172,1280,519,1159,618,851,513,632,376,633,101
         objects:
+          track:
           - person
         filters:
           person:
