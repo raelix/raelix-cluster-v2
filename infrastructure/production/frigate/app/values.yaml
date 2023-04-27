@@ -80,9 +80,9 @@ config: |
           - person
           filters:
             person:
-              min_area: 2000
+              min_area: 1000
               max_area: 100000
-              threshold: 0.7
+              threshold: 0.65
         ffmpeg:
           inputs:
             - path: rtsp://127.0.0.1:8554/soggiorno
