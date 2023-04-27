@@ -88,10 +88,10 @@ config: |
             - path: rtsp://127.0.0.1:8554/soggiorno
               roles:
                 - detect
-                - record
+                # - record
         detect:
-          width: 1280
-          height: 720
+          # width: 1280
+          # height: 720
           fps: 5
 
     objects:
