@@ -40,6 +40,9 @@ config: |
         ingresso:
           - "rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.197:554/stream1"
           - "ffmpeg:ingresso#audio=opus"
+        soggiorno:
+          - "rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.151:554/stream1"
+          - "ffmpeg:soggiorno#audio=opus"
 
     cameras:
       ingresso:
@@ -53,6 +56,21 @@ config: |
         ffmpeg:
           inputs:
             - path: rtsp://127.0.0.1:8554/ingresso
+              roles:
+                - detect
+                - record
+        detect:
+          width: 1280
+          height: 720
+          fps: 5
+
+      soggiorno:
+        # zones:
+          # porta:
+          #   coordinates: 104,720,257,28,576,263,528,720
+        ffmpeg:
+          inputs:
+            - path: rtsp://127.0.0.1:8554/soggiorno
               roles:
                 - detect
                 - record
