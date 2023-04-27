@@ -72,7 +72,7 @@ config: |
       soggiorno:
         zones:
           divano:
-            coordinates: 0,279,0,441,147,488,299,487,319,408,389,387,396,342,440,286,469,161,111,176
+            coordinates: 0,279,0,441,147,488,324,463,354,427,463,389,473,344,467,283,469,161,111,176
           cucina:
             coordinates: 853,108,1087,129,1214,159,1280,172,1280,519,1159,618,851,513,632,376,633,101
         objects:
@@ -82,7 +82,7 @@ config: |
             person:
               min_area: 500
               max_area: 100000
-              # threshold: 0.6
+              threshold: 0.7
         ffmpeg:
           inputs:
             - path: rtsp://127.0.0.1:8554/soggiorno
