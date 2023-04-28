@@ -103,23 +103,23 @@ config: |
         zones:
           # divano:
           #   coordinates: 407,660,712,720,1280,720,1280,363,773,341,520,336,113,524
-          cucina:
-            coordinates: 0,337,170,214,459,106,510,399,169,617
-        objects:
-          track:
-          - person
-          filters:
-            person:
-              min_area: 500
-              max_area: 100000
-              threshold: 0.7
+          # cucina:
+          #   coordinates: 0,337,170,214,459,106,510,399,169,617
+        # objects:
+        #   track:
+        #   - person
+        #   filters:
+        #     person:
+        #       min_area: 500
+        #       max_area: 100000
+        #       threshold: 0.7
         ffmpeg:
           inputs:
             - path: rtsp://127.0.0.1:8554/arlo
-              roles:
-                - detect
-        detect:
-          fps: 5
+              # roles:
+              #   - detect
+        # detect:
+        #   fps: 10
 
     objects:
       track:
