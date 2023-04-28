@@ -81,8 +81,8 @@ config: |
         objects:
           track:
           - person
-          - laptop
-          - book
+          # - laptop
+          # - book
           filters:
             person:
               min_area: 500
