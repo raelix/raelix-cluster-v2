@@ -43,6 +43,9 @@ config: |
         soggiorno:
           - "rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.151:554/stream1"
           - "ffmpeg:soggiorno#audio=opus"
+        soggiornoarlo:
+          - "rtsp://192.168.1.240:8554/soggiorno"
+          - "ffmpeg:soggiornoarlo#audio=opus"
 
     cameras:
       ingresso:
@@ -94,6 +97,28 @@ config: |
         detect:
           # width: 1280
           # height: 720
+          fps: 5
+
+      soggiornoarlo:
+        # zones:
+        #   divano:
+        #     coordinates: 0,279,0,487,133,556,343,566,354,427,589,412,593,286,596,154,114,163
+        #   cucina:
+        #     coordinates: 853,108,1087,129,1214,159,1280,172,1280,519,1192,668,1203,720,920,720,780,594,690,382,704,106
+        objects:
+          track:
+          - person
+          filters:
+            person:
+              min_area: 500
+              max_area: 100000
+              threshold: 0.7
+        ffmpeg:
+          inputs:
+            - path: rtsp://127.0.0.1:8554/soggiornoarlo
+              roles:
+                - detect
+        detect:
           fps: 5
 
     objects:
