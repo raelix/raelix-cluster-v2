@@ -48,6 +48,7 @@ ingress:
     ingressClassName: "nginx"
     annotations:
       auth.home.arpa/enabled: "true"
+      nginx.ingress.kubernetes.io/proxy-body-size: 304048m
     hosts:
       - host: &host "paperless.raelix.com"
         paths:
