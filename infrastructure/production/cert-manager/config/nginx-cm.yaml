@@ -2,6 +2,7 @@ apiVersion: v1
 data:
   allow-snippet-annotations: "false"
   proxy-buffer-size: 16k
+  allow-snippet-annotations: "true"
 kind: ConfigMap
 metadata:
   name: rke2-ingress-nginx-controller
