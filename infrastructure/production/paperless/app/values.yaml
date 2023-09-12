@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
-  tag: 1.17.0
+  tag: 1.17.4
 
 podAnnotations:
   secret.reloader.stakater.com/reload: paperless-secrets
