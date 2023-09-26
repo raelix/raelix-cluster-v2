@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emqx-listeners-np
+  namespace: message
+spec:
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: tcp-default
+    nodePort: 31493
+    port: 1883
+    protocol: TCP
+    targetPort: 1883
+  selector:
+    apps.emqx.io/db-role: replicant
+    apps.emqx.io/instance: emqx
+    apps.emqx.io/managed-by: emqx-operator
+  sessionAffinity: None
+  type: NodePort

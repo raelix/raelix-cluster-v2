@@ -7,3 +7,4 @@ resources:
   - ./dashboard-auth.yaml
   - ./cluster.yaml
   - ./ingress.yaml
+  - ./external-listener.yaml
