@@ -69,7 +69,7 @@ addons:
     enabled: true
     image:
       repository: codercom/code-server
-      tag: 4.16.1
+      tag: 4.17.1
     workingDir: "/config"
     args:
     - --auth
