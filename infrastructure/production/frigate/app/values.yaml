@@ -43,11 +43,31 @@ config: |
         soggiorno:
           - "rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.151:554/stream1"
           - "ffmpeg:soggiorno#audio=opus"
-        # arlo:
-        #   - "rtsp://192.168.1.240:8554/soggiorno"
-        #   - "ffmpeg:arlo#audio=opus"
+        arlo:
+          - "rtsp://192.168.1.100:42925/2ca30f4376dda965"
+          - "ffmpeg:arlo#audio=opus"
 
     cameras:
+      arlo:
+        objects:
+          track:
+          - person
+          filters:
+            person:
+              # min_area: 2000
+              # max_area: 100000
+              min_score: 0.7
+              threshold: 0.8
+        ffmpeg:
+          inputs:
+            - path: rtsp://127.0.0.1:8554/arlo
+              roles:
+                - detect
+                - record
+        detect:
+          width: 1280
+          height: 720
+          fps: 5
       ingresso:
         zones:
           entrata:
