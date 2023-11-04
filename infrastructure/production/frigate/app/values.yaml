@@ -45,7 +45,6 @@ config: |
           - "ffmpeg:soggiorno#audio=opus"
         arlo:
           - "rtsp://192.168.1.100:42925/2ca30f4376dda965"
-          - "ffmpeg:arlo#audio=opus"
 
     cameras:
       arlo:
@@ -60,7 +59,7 @@ config: |
               threshold: 0.8
         ffmpeg:
           inputs:
-            - path: rtsp://127.0.0.1:8554/arlo
+            - path: rtsp://192.168.1.100:42925/2ca30f4376dda965
               roles:
                 - detect
                 - record
