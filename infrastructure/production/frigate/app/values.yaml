@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/blakeblackshear/frigate
-  tag: 0.13.0-beta5
+  tag: stable
 ingress:
   # -- Enables the use of an Ingress Controller to front the Service and can provide HTTPS
   enabled: true
@@ -72,6 +72,8 @@ config: |
           - person
           filters:
             person:
+              # min_area: 2000
+              # max_area: 100000
               min_score: 0.7
               threshold: 0.8
         ffmpeg:
@@ -122,6 +124,8 @@ config: |
         objects:
           track:
           - person
+          # - laptop
+          # - book
           filters:
             person:
               min_area: 300
@@ -132,8 +136,33 @@ config: |
             - path: rtsp://127.0.0.1:8554/soggiorno
               roles:
                 - detect
+                # - record
         detect:
+          # width: 1280
+          # height: 720
           fps: 5
+
+      # arlo:
+      #   zones:
+      #     # divano:
+      #     #   coordinates: 407,660,712,720,1280,720,1280,363,773,341,520,336,113,524
+      #     cucina:
+      #       coordinates: 0,337,170,214,459,106,510,399,169,617
+      #   objects:
+      #     track:
+      #     - person
+      #     filters:
+      #       person:
+      #         min_area: 500
+      #         max_area: 100000
+      #         threshold: 0.7
+      #   ffmpeg:
+      #     inputs:
+      #       - path: rtsp://127.0.0.1:8554/arlo
+      #         roles:
+      #           - detect
+      #   detect:
+      #     fps: 5
 
     objects:
       track:
