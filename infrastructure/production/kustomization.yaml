@@ -17,19 +17,19 @@ resources:
   # - ./minio/ks.yaml
   # - ./argo-workflows/ks.yaml
   - ./portal/ks.yaml
-  - ./coder/ks.yaml
+  # - ./coder/ks.yaml
   - ./paperless/ks.yaml
   - ./home-automation/ks.yaml
-  - ./home-assistant/ks.yaml
+  # - ./home-assistant/ks.yaml
   # - ./n8n/ks.yaml
-  - ./emqx-operator/ks.yaml
-  - ./ring-mqtt/ks.yaml
+  # - ./emqx-operator/ks.yaml
+  # - ./ring-mqtt/ks.yaml
   - ./zigbee2mqtt-sensors/ks.yaml
-  - ./zigbee2mqtt-switches/ks.yaml
+  # - ./zigbee2mqtt-switches/ks.yaml
   - ./frigate/ks.yaml
   - ./compreface/ks.yaml
   - ./double-take/ks.yaml
-  - ./nodered/ks.yaml
+  # - ./nodered/ks.yaml
 configMapGenerator:
 - name: cluster-vars
   namespace: flux-system
