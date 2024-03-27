@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: frigate
-      version: 7.0.1
+      version: 7.4.0
       interval: 30m
       sourceRef:
         kind: HelmRepository
