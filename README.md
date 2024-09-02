@@ -4,7 +4,7 @@
 ## Overview
 This repo is modified using coder on my Kubernetes cluster. 
 Almost all components (WIP) are authenticated using KeyCloak (locally) and Auth0 (remote) using OID Connect to allow the SSO (single sign-on).
-
+Renovate helps me to keep the components updated.
 ### Requirements
 - sops
 - pre-commit
