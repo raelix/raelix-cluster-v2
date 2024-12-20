@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/home-assistant/home-assistant
-  tag: 2024.3.3
+  tag: 2024.12.5
 
 # podAnnotations:
 #   secret.reloader.stakater.com/reload: home-assistant-secrets
